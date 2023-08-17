@@ -1,27 +1,16 @@
 package com.example.backen_kleding_bieb.dto;
 
-
-
 import com.example.backen_kleding_bieb.models.Item;
+import com.example.backen_kleding_bieb.models.Upload;
+import com.example.backen_kleding_bieb.models.User;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.Id;
 import jakarta.persistence.criteria.Order;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.List;
-import java.util.Objects;
-
-@NoArgsConstructor
-@AllArgsConstructor
-
-@Getter
-@Setter
-
 
 public class ItemDto {
+
 
     @Id
 
@@ -30,35 +19,64 @@ public class ItemDto {
 
     private String nameInfo;
 
-   // public String uploadFileName;
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public String getNameInfo() {
+        return nameInfo;
+    }
+
+    public void setNameInfo(String nameInfo) {
+        this.nameInfo = nameInfo;
+    }
+
+    public List<Item.Tags> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Item.Tags> tags) {
+        this.tags = tags;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
     List<Item.Tags> tags;
 
+    public Upload getUpload() {
+        return upload;
+    }
+
+    public void setUpload(Upload upload) {
+        this.upload = upload;
+    }
+
+    @JsonIncludeProperties({"url", "fileName", "textType"})
+    private Upload upload;
 
     @JsonIncludeProperties({"id", "username", "password", "apikey", "email"})
-   // @JsonIgnore
+
     private User user;
-   // private Object user;
+
 
     @JsonIncludeProperties({"id", "dateInfo", "itemInfo"})
-    private Order order;
+    private List<Order> orders;
 
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ItemDto that = (ItemDto) o;
-        return  Objects.equals(id, that.id) && Objects.equals(nameInfo, that.nameInfo)
-                && Objects.equals(user, that.user) && Objects.equals(tags, that.tags) && Objects.equals(order, that.order);
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nameInfo, user, tags, order);
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
-
 
 }

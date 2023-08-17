@@ -2,8 +2,7 @@ package com.example.backen_kleding_bieb.controller;
 
 
 import com.example.backen_kleding_bieb.dto.ItemDto;
-import com.example.backen_kleding_bieb.service.AccountService;
-import com.example.backen_kleding_bieb.service.ItemService;
+import com.example.backen_kleding_bieb.service.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +43,7 @@ public class ItemController {
         this.itemService = itemService;
     }
 
-// transactional to link a pic to a item
+
 
     @GetMapping("/items")
     @Transactional
@@ -53,9 +52,6 @@ public class ItemController {
 
    return ResponseEntity.ok(itemService.getAllItems());
     }
-
-
-
 
     @GetMapping("/items/{id}")
     @Transactional
@@ -102,12 +98,12 @@ public class ItemController {
 
 
     //  link photo to a item
-    @PostMapping("/items/{id}/photo")
-    public ResponseEntity<Object> assignPhotoToItem(@PathVariable("id") Long id, @RequestBody MultipartFile file) {
+    @PostMapping("/items/photo")
+    public ResponseEntity<Object> assignPhotoToItem(@Valid  @RequestBody MultipartFile file) {
         String url = ServletUriComponentsBuilder.fromCurrentContextPath().path("/download/")
                 .path(Objects.requireNonNull(file.getOriginalFilename())).toUriString();
-        String photo = UploadService.storeFile(file);
-        itemService.assignPhotoToItem(photo, id);
+        String photo = UploadService.storeFile(file, url);   ///url
+        itemService.assignPhotoToItem(photo);
 
         ///////////// from video
 //        Upload photo = uploadController.FileUpload(file);

@@ -1,6 +1,7 @@
 package com.example.backen_kleding_bieb.filter;
 
 
+import com.example.backen_kleding_bieb.service.CustomUserDetailsService;
 import com.example.backen_kleding_bieb.utils.JwtUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
