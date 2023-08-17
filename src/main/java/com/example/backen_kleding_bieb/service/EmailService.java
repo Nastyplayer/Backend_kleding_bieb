@@ -20,11 +20,7 @@ import java.util.Date;
 @Service
 
 public class EmailService implements EmailRepository {
-
-
     private JavaMailSender javaMailSender;
-
-
     private String sender;
 
 
@@ -96,12 +92,10 @@ public class EmailService implements EmailRepository {
             return "Mail successfully sended...";
         }
 
-
         catch (Exception e) {
             return "Sending Mail in Error";
         }
     }
-
 
     public String
     sendWithAttachment(Email email) {
@@ -114,7 +108,6 @@ public class EmailService implements EmailRepository {
             myMessageHelper.setTo(email.getReceiver());
             myMessageHelper.setText(email.getMessage());
             myMessageHelper.setSubject(email.getSubject());
-
 
             FileSystemResource file = new FileSystemResource(new File(email.getAttachment()));
             myMessageHelper.addAttachment(file.getFilename(), file);

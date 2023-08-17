@@ -1,13 +1,12 @@
 package com.example.backen_kleding_bieb.service;
-
-
 import com.example.backen_kleding_bieb.dto.ItemDto;
 import com.example.backen_kleding_bieb.exceptions.RecordNotFoundException;
 import com.example.backen_kleding_bieb.models.Item;
+import com.example.backen_kleding_bieb.models.Upload;
 import com.example.backen_kleding_bieb.repository.ItemRepository;
+import com.example.backen_kleding_bieb.repository.UploadRepository;
 import jakarta.persistence.criteria.Order;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -15,21 +14,15 @@ import java.util.Optional;
 @Service
 public class ItemService {
 
-
     private final ItemRepository itemRepository;
-    private Item Item;
-
     private UploadRepository uploadRepository;
+    private Item item;
 
-    public ItemService(ItemRepository itemRepository, UploadRepository uploadRepository, UploadRepository uploadRepository2) {
+    public ItemService(ItemRepository itemRepository, UploadRepository uploadRepository) {
 
         this.itemRepository = itemRepository;
-
         this.uploadRepository = uploadRepository;
-
     }
-
-
     public List<ItemDto> getAllItems() {
         List<Item>items = itemRepository.findAll();
         ArrayList<ItemDto> itemDtos = new ArrayList<>();
@@ -39,9 +32,8 @@ public class ItemService {
         }
         return itemDtos;
     }
-
     public ItemDto getItem(Long id) {
-        Optional<com.example.backen_kleding_bieb.models.Item> optionalItem = itemRepository.findById(id);
+        Optional<Item> optionalItem = itemRepository.findById(id);
         if (optionalItem.isPresent()) {
             Item item1 = optionalItem.get();
             return transferItemToItemDto(item1);
@@ -79,9 +71,6 @@ public class ItemService {
             if (itemDto.getNameInfo() != null) {
                 itemToUpdate.setNameInfo(itemDto.getNameInfo());
             }
-           // if (itemDto.getQuality() != null) {
-            //    itemToUpdate.setQuality(itemDto.getQuality());
-           // }
 
             Item savedItem = itemRepository.save(itemToUpdate);
             return transferItemToItemDto(savedItem);
@@ -89,7 +78,6 @@ public class ItemService {
             throw new RecordNotFoundException("No item with id " + id);
         }
     }
-
     public String deleteById(Long id) {
         if (itemRepository.existsById(id)) {
             Optional<Item> deletedItem = itemRepository.findById(id);
@@ -100,64 +88,52 @@ public class ItemService {
             throw new RecordNotFoundException("No Item found with id: " + id + ".");
         }
     }
-    public void assignPhotoToItem(String fileName, Long id) {
-        Optional<Item> optionalItem = itemRepository.findById(id);
+    public void assignPhotoToItem(String fileName) {
         Optional<Upload> Upload= uploadRepository.findByFileName(fileName);
 
-        //Optional<Upload> fileUploadResponse = uploadRepository.findByFileName(fileName);
-        //if (optionalItem.isPresent() && fileUploadResponse.isPresent()) {
-           // fileUploadResponse photo = fileUploadResponse.get();
-
-            if (optionalItem.isPresent() && UploadisPresent()) {
-           Upload photo = Upload.get();
-            Item item = optionalItem.get();
+        if (UploadisPresent()) {
+            Upload photo = Upload.get();
             item.setUpload(photo);
-            //item.setUpload(photo);
             itemRepository.save(item);
         }
     }
-
     private boolean UploadisPresent() {
         return false;
     }
 
-
-    //    helper methods.......................................................
-    private ItemDto transferItemToItemDto (Item item) {
+    private ItemDto transferItemToItemDto(Item item) {
         ItemDto itemDto = new ItemDto();
         itemDto.setUser(item.getUser());
-       itemDto.setId(item.getId());
+        itemDto.setId(item.getId());
         itemDto.setNameInfo(item.getNameInfo());
-        //itemDto.setUploadFileName(item.getUploadFileName());
-    //    itemDto.setQuality(item.getQuality());
         if (item.getUser() != null) {
             itemDto.setUser(item.getUser());
         }
-        if (item.getOrder() != null) {
-            itemDto.setOrder((Order) item.getOrder());
+        if (item.getOrders() != null) {
+            itemDto.setOrders((List<Order>) item.getOrders());
+
+        }
+        if (item.getTags() != null) {
+            itemDto.setTags(item.getTags());
+        }
+        if (item.getUpload() != null) {
+            itemDto.setUpload(item.getUpload());
         }
 
         return itemDto;
     }
 
-    private Item transferItemDtoToItem (ItemDto itemDto) {
+    private Item transferItemDtoToItem(ItemDto itemDto) {
         Item item = new Item();
-        item.setUser((User) itemDto.getUser());
-       item.setId(itemDto.getId());
+        item.setUser(itemDto.getUser());
+        item.setId(itemDto.getId());
         item.setNameInfo(itemDto.getNameInfo());
-     //   item.setUploadFileName(itemDto.getUploadFileName());
-    //    item.setQuality(itemDto.getQuality());
+        item.setTags(itemDto.getTags());
+        item.setOrder((com.example.backen_kleding_bieb.models.Order) itemDto.getOrders());
+        item.setUpload(itemDto.getUpload());
 
         return item;
     }
 
-    public List<Item> transferItemDtoListToItemList(List<ItemDto> itemsdtos) {
-        List<Item> items = new ArrayList<>();
-        for (ItemDto itemsdto : itemsdtos) {
-            items.add(transferItemDtoToItem(itemsdto));
-        }
-        return items;
-    }
-
-
 }
+

@@ -1,14 +1,11 @@
 package com.example.backen_kleding_bieb.service;
 
-
-import backen_kleding_bieb.dto.AccountDto;
-import backen_kleding_bieb.exceptions.RecordNotFoundException;
-import backen_kleding_bieb.models.*;
-import backen_kleding_bieb.repository.*;
 import com.example.backen_kleding_bieb.dto.AccountDto;
 import com.example.backen_kleding_bieb.exceptions.RecordNotFoundException;
 import com.example.backen_kleding_bieb.models.Account;
-import com.example.backen_kleding_bieb.repository.AccountRepository;
+import com.example.backen_kleding_bieb.models.Subscription;
+import com.example.backen_kleding_bieb.models.Upload;
+import com.example.backen_kleding_bieb.repository.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -55,7 +52,7 @@ public class AccountService {
         return accountDtos;
     }
 
-    // GetMapping by id, method for getting a Account by id
+
     public AccountDto getAccount(Long id) {
         Optional<Account> optionalAccount = accountRepository.findById(id);
         if (optionalAccount.isPresent()) {
@@ -66,16 +63,11 @@ public class AccountService {
         }
     }
 
-    // , method for adding a Account
+
     public Long createAccount(AccountDto accountDto) {
         Account newAccount;
         newAccount = transferAccountDtoToAccount(accountDto);
         Account savedAccount = accountRepository.save(newAccount);
-
-     //   addOrderToAccount(accountDto, savedAccount);
-     //   addSubscriptionToAccount(accountDto, savedAccount);
-      //  addUploadToAccount(accountDto, savedAccount);
-      //  addUserToAccount(accountDto, savedAccount);
 
         return savedAccount.getId();
     }
@@ -83,7 +75,7 @@ public class AccountService {
 
     ////////////////////////////////////////////////////
 
-    // PutMapping, method for changing a (whole)account
+
     public AccountDto putAccount(Long id, AccountDto accountDto) {
         if (accountRepository.findById(id).isPresent()) {
             Account accountToChange = accountRepository.findById(id).get();
@@ -100,8 +92,6 @@ public class AccountService {
 
     //////////////////////////////////////////////////////
 
-
-    // Patchmapping, method for changing parts of a Account
 
     public AccountDto patchAccount(Long id, AccountDto accountDto) {
         Optional<Account> optionalAccount = accountRepository.findById(id);
@@ -133,22 +123,11 @@ public class AccountService {
 
 
     ///////////////////////////////////////////////////////////
-    // DeleteMapping, method for deleting a acount
+
     public String deleteById(Long id) {
         if (accountRepository.existsById(id)) {
             Optional<Account> deletedAccount = accountRepository.findById(id);
             Account account1 = deletedAccount.get();
-
-            // deleting upload, subscriptions  first
-        //    for (Upload upload : account1.getUploads()) {
-               Upload upload = account1.getUpload();
-                uploadRepository.delete(upload);
-       //     }
-            Subscription subscription = account1.getSubscription();
-
-           // for (Subscription subscription : account1.getSubscriptions()) {
-                subscriptionRepository.delete(subscription);
-       //     }
 
             accountRepository.delete(account1);
             return "Account with id: " + id + " deleted.";
@@ -158,23 +137,21 @@ public class AccountService {
     }
 
     //////////////////////
+//
+//    // Assign photo to a account
+//     public void assignPhotoToAccount(String fileName, Long id) {
+//        Optional<Account> optionalAccount = accountRepository.findById(id);
+//         Optional<Upload> fileUploadResponse = uploadRepository.findByFileName(fileName);
+//         if (optionalAccount.isPresent() && fileUploadResponse.isPresent()) {
+//          Upload photo = fileUploadResponse.get();
+//              Account account = optionalAccount.get();
+//           account.setUpload(photo);
+//             accountRepository.save(account);
+//       }
+//    }
 
-    // Assign photo to a account
-     public void assignPhotoToAccount(String fileName, Long id) {
-        Optional<Account> optionalAccount = accountRepository.findById(id);
-         Optional<Upload> fileUploadResponse = uploadRepository.findByFileName(fileName);
-         if (optionalAccount.isPresent() && fileUploadResponse.isPresent()) {
-          Upload photo = fileUploadResponse.get();
-              Account account = optionalAccount.get();
-           account.setUpload(photo);
-             accountRepository.save(account);
-       }
-    }
 
 
-    //  methods
-    //
-    //  method from Account to Dto
     private AccountDto transferAccountToAccountDto(Account account) {
         AccountDto accountDto = new AccountDto();
         accountDto.setId(account.getId());
@@ -196,10 +173,6 @@ public class AccountService {
     }
 /////////////////////////
 
-
-    /////////////////////////////////////////////
-
-    //method from Dto to Acount
     public Account transferAccountDtoToAccount(AccountDto accountDto) {
         Account account = new Account();
         account.setId(accountDto.getId());
@@ -211,60 +184,5 @@ public class AccountService {
 
         return account;
     }
-
-
-/////////////////////////
-
-    public List<Account> transferAccountDtoListToAccountList (List<AccountDto> usersdtos) {
-        List<Account> users = new ArrayList<>();
-        for (AccountDto usersdto : usersdtos) {
-            users.add(transferAccountDtoToAccount(usersdto));
-        }
-        return users;
-    }
-
-    public void getAccount(String userInfo, String subscriptionInfo) {
-    }
-
-
-    // methods to add user, upload , account and subscription to these lists and connect to Account
-   // public void addUploadToAccount(AccountDto accountDto, Account account) {
-    //    for (Upload upload : accountDto.getUploads()) {
-     //       if (!upload.getUpload().isEmpty()) {
-       //         upload.setAccount(account);
-         //       uploadRepository.save(upload);
-          //  }
-//}
-   // }
-
-   // public void addOrderToAccount(AccountDto accountDto, Account account) {
-     //   for (Order order : accountDto.getOrders()) {
-     //       if (!order.getOrder().isEmpty()) {
-     //           order.setAccount(account);
-     //           orderRepository.save(order);
-     //       }
-   //     }
- //   /}
-
-  //  public void addSubscriptionToAccount(AccountDto accountDto, Account account) {
-  ///      for (Subscription subscription : accountDto.getSubscriptions()) {
- //           if (!subscription.getSubscription().isEmpty()) {
- //               subscription.setAccount(account);
-   //             subscriptionRepository.save(subscription);
-   //         }
-   //     }
-
-//    }
-
-  //  public void addUserToAccount(AccountDto accountDto, Account account) {
-  //      for (User user : accountDto.getUsers()) {
-    //        if (!user.getUser().isEmpty()) {
-       //         user.setAccounts(account);
-       //         userRepository.save(user);
-       //     }
-      //  }
-
-  //  }
-
 
 }

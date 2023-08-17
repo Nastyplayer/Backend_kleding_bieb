@@ -1,12 +1,11 @@
 package com.example.backen_kleding_bieb.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.Objects;
 
 
 @NoArgsConstructor
@@ -15,10 +14,10 @@ import java.util.Objects;
 @Getter
 @Setter
 
-/*annotatie   DONE!!!!*/
+
 @Entity
 @Table(name = "accounts")
-public class Account {
+public class Account  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,39 +27,42 @@ public class Account {
 
     private String subscriptionInfo;
 
-
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    Subscription subscription;
-
-    @OneToOne
-    Upload upload;
-
-    @OneToOne
-    User user;
+    private String email;
+    private String comment;
 
 
-    //maybe ?
-
-
-    //VERGELIJKING
-    @Override
-
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Account account = (Account) o;
-        return Objects.equals(id, account.id) && Objects.equals(userInfo, account.userInfo) &&
-                Objects.equals(subscriptionInfo, account.subscriptionInfo ) && Objects.equals(subscription, account.subscription)
-                && Objects.equals(upload, account.upload ) && Objects.equals(user, account.user) ;
-
+    public Subscription getSubscription() {
+        return subscription;
     }
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, userInfo, subscriptionInfo,  subscription, upload, user);
+
+    public void setSubscription(Subscription subscription) {
+        this.subscription = subscription;
+    }
+
+    public Upload getUpload() {
+        return uploads;
+    }
+
+
+    public void setUpload(Upload upload) {
+        this.uploads = uploads;
     }
 
 
 
 
+    @OneToOne  ( mappedBy = "account")
+    private Subscription subscription;
+
+
+    @OneToOne
+    @JsonIgnore
+    private Upload uploads;
+
+    @OneToOne( mappedBy = "account")
+    @JsonIgnore
+    private User user;
 
 }
+
+
