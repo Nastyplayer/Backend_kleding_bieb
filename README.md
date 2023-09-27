@@ -1,10 +1,9 @@
 # Backend_kleding_bieb
 
-Soms, bij het opstarten van de backend, is de juiste SDK nog niet geïnstalleerd. Dit kan worden gedaan door in IntelliJ rechtsboven op de drie punten te klikken of door te klikken op "File" (Bestand, bij Nederlandstalig ingesteld)  links bovenaan in de menubalk, vervolgens op “project structure” daarna op “project”.
+Soms is bij het opstarten van de backend de juiste SDK nog niet geïnstalleerd. Dit kan worden opgelost door in IntelliJ rechtsboven op de drie puntjes te klikken, of door te navigeren naar "Bestand" linksboven in de menubalk, vervolgens op "Projectstructuur" te klikken en daarna op "Project".
 
-Daarna kan een SDK worden geselecteerd. Backend_Kleding_Bieb draait  op openjdk- 19,  versie 19. 
-Nu moet de backend gereed zijn om op te starten, dit kan worden gedaan door rechtsboven op “play” te klikken naast de bestandsnaam.
+Vervolgens kan een SDK worden geselecteerd. Backend_Kleding_Bieb draait op OpenJDK-19, versie 19. Nu zou de backend gereed moeten zijn om op te starten. Dit kan worden gedaan door rechtsboven op "Afspelen" te klikken naast de bestandsnaam.
 
-Important: Kleding_Bieb draait op localhost: 8083  (server.port)
+Belangrijk: Kleding_Bieb draait op localhost:8083 (server.poort).
 
 Enjoy it 😉!
