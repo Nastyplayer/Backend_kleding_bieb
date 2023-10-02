@@ -50,11 +50,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         Subscription subscription100;
         Subscription subscription200;
 
-//    private User user1;
-//
-//    private User user2;
-////    UserDto user100;
-//    UserDto user200;
 
 
         SubscriptionDto subscriptionDto1;

@@ -178,7 +178,6 @@ public class AccountServiceTest {
         assertThrows(RecordNotFoundException.class, () -> accountService.patchAccount(1L, new AccountDto(1L, "IggyPop", "annual", "iggy@pop.nl", "Hola", null, null, null)));
     }
 
-
     @Test
     void deleteById() {
 
@@ -194,20 +193,6 @@ public class AccountServiceTest {
     void deleteAccountThrowsExceptionForAccountTest() {
         assertThrows(RecordNotFoundException.class, () -> accountService.deleteById(1L));
     }
-
-//    @Test
-//    void transferAccountToAccountDto(){
-//
-////        when(account1.getUpload()).thenReturn(null);
-////        when(account1.getSubscription()).thenReturn(null);
-//
-//        AccountDto accountDto1 = accountService.transferAccountToAccountDto(account1);
-//
-//        assertEquals(account1.getUpload(), accountDto1.getUpload());
-//        assertEquals(account1.getSubscription(), accountDto1.getSubscription());
-//      //  assertEquals(repairDto1.getMaintenance(), repairreturn.getMaintenance());
-//       // assertEquals(repairDto1.getCarpart(), repairreturn.getCarpart());
-//    }
 
 
 

@@ -31,21 +31,6 @@ public class OrderDto {
 
     private LocalDate dateInfo;
 
-    public UserDto getUserDto() {
-        return userDto;
-    }
-
-    public void setUserDto(UserDto userDto) {
-        this.userDto = userDto;
-    }
-
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> item) {
-        this.items = item;
-    }
 
         public User getUsers() {
     return null;

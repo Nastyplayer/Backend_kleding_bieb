@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 
-/*annotatie DONE!!*/
+
 @Entity
 @IdClass(AuthorityKey.class)
 @Table(name = "authorities")

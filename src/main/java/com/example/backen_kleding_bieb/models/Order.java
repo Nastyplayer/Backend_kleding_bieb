@@ -30,34 +30,6 @@ public class Order {
     private String itemInfo;
 
     private LocalDate dateInfo;
-
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    public String getItemInfo() {
-//        return itemInfo;
-//    }
-//
-//    public void setItemInfo(String itemInfo) {
-//        this.itemInfo = itemInfo;
-//    }
-//
-//    public List<Item> getItems() {
-//        return items;
-//    }
-//
-//    public void setItems(List<Item> items) {
-//        this.items = items;
-//    }
-
-//    public User getUser() {
-//        return users;
-//    }
 //
     public void setUserDto(UserDto userDto) {
     }
@@ -65,10 +37,6 @@ public class Order {
 
         return new UserDto();
     }
-//    public void setUser(User user) {
-//        this.users = user;
-//    }
-//
 
 
     @JsonFormat(pattern = "dd-MM-yyyy")

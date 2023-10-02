@@ -185,13 +185,6 @@ public class OrderServiceTest {
         assertThrows(RecordNotFoundException.class, () -> orderService.deleteById(1L));
     }
 
-//    @Test
-//    void transferOrderToOrderDto() {
-//        OrderDto orderDto1 = orderService.transferOrderToOrderDto(order1);
-//        assertEquals(order1.getItems(), orderDto1.getItems());
-//    }
-
-
 
 
 }

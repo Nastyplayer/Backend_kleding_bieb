@@ -35,44 +35,11 @@ public class Item {
     @JoinColumn(name = "users_username")
     private User users;
 
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    public String getNameInfo() {
-//        return nameInfo;
-//    }
-//
-//    public void setNameInfo(String nameInfo) {
-//        this.nameInfo = nameInfo;
-//    }
-//
-//    public Order getOrders() {
-//        return orders;
-//    }
-//    public User getUser() {
-//        return users;
-//    }
-//
-//    public void setUser(User user) {
-//        this.users = user;
-//    }
 
 
     @Column(unique = true, nullable = false)
     private String nameInfo;
 
-
-
-//    @ManyToOne
-//    @JsonIgnore
-//
-//    private User users;
-//
 
 
     public void setOrder(Order order) {
