@@ -97,9 +97,9 @@ public class OrderService {
             if (orderDto.getDateInfo() != null) {
                 orderToUpdate.setDateInfo(orderDto.getDateInfo());
             }
-            if (orderDto.getUserDto() != null) {
-                orderToUpdate.setUserDto(orderDto.getUserDto());
-            }
+//            if (orderDto.getUserDto() != null) {
+//                orderToUpdate.setUserDto(orderDto.getUserDto());
+//            }
 
 
             Order savedOrder = orderRepository.save(orderToUpdate);
@@ -130,7 +130,15 @@ public class OrderService {
         if (order.getUserDto() != null) {
             orderDto.setUserDto(order.getUserDto());
         }
-
+        if (order.getItemInfo() != null) {
+            orderDto.setItemInfo(order.getItemInfo());
+        }
+        if (order.getId() != null) {
+            orderDto.setId(order.getId());
+        }
+        if (order.getDateInfo() != null) {
+            orderDto.setDateInfo(order.getDateInfo());
+        }
 
         return orderDto;
     }

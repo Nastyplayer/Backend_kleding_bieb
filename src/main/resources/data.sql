@@ -83,13 +83,13 @@ INSERT INTO uploads (file_name, text_Type, url) VALUES ('hat of linen.jpg', 'ima
 
 
 ALTER TABLE items  ADD COLUMN order_id INT;
-INSERT INTO items (id, name_Info, user_username, order_id, uploads_file_name) VALUES (1001, 'hat of linen', 'user6', 16, 'hat of linen.jpg');
-INSERT INTO items (id, name_Info, user_username, order_id, uploads_file_name) VALUES (1002, 'bag2 of leather', 'user2', 12, 'bag2 of leather.jpg');
+INSERT INTO items (id, name_Info, users_username, order_id, uploads_file_name) VALUES (1001, 'hat of linen', 'user6', 16, 'hat of linen.jpg');
+INSERT INTO items (id, name_Info, users_username, order_id, uploads_file_name) VALUES (1002, 'bag2 of leather', 'user2', 12, 'bag2 of leather.jpg');
 
-INSERT INTO items (id, name_Info, user_username, order_id, uploads_file_name) VALUES (1003, 'blouse of silk', 'user4', 14, 'blouse of silk.jpg');
-INSERT INTO items (id, name_Info, user_username, order_id, uploads_file_name) VALUES (1004, 'coat of linen', 'user3', 13, 'coat of linen.jpg');
-INSERT INTO items (id, name_Info, user_username, order_id, uploads_file_name) VALUES (1005, 'blouse of linen', 'user5', 15, 'blouse of linen.jpg');
-INSERT INTO items (id, name_Info, user_username, order_id, uploads_file_name) VALUES (1006, 'bag1 of leather', 'user1', 11, 'bag1 of leather.jpg');
+INSERT INTO items (id, name_Info, users_username, order_id, uploads_file_name) VALUES (1003, 'blouse of silk', 'user4', 14, 'blouse of silk.jpg');
+INSERT INTO items (id, name_Info, users_username, order_id, uploads_file_name) VALUES (1004, 'coat of linen', 'user3', 13, 'coat of linen.jpg');
+INSERT INTO items (id, name_Info, users_username, order_id, uploads_file_name) VALUES (1005, 'blouse of linen', 'user5', 15, 'blouse of linen.jpg');
+INSERT INTO items (id, name_Info, users_username, order_id, uploads_file_name) VALUES (1006, 'bag1 of leather', 'user1', 11, 'bag1 of leather.jpg');
 
 
 
@@ -120,10 +120,10 @@ ALTER TABLE orders  ADD COLUMN uploads_file_name VARCHAR;
 ALTER TABLE orders  ADD COLUMN item_tags_tags VARCHAR;
 
 --INSERT INTO orders (id, item_Info, date_Info, user_username, uploads_file_name, item_tags_tags)VALUES (11, 'gloss of alpaca wool', '2023-07-11', 'user6', 'gloss of alpaca wool.jpg ', 'ADDITIVE_FREE');
-INSERT INTO orders (id, item_Info, date_Info, user_username, uploads_file_name, item_tags_tags)VALUES (11, 'hat of linen ', '2023-07-11', 'user6', 'hat of linen.jpg ', 'ADDITIVE_FREE');
-INSERT INTO orders (id, item_Info, date_Info, user_username, uploads_file_name, item_tags_tags)VALUES (12, 'blouse of linen', '2023-08-01', 'user5', 'blouse of linen.jpg', 'ORGANIC');
-INSERT INTO orders (id, item_Info, date_Info, user_username, uploads_file_name, item_tags_tags)VALUES (13, 'blouse of silk', '2023-07-08', 'user4','blouse of silk.jpg', 'SUSTAINABLE');
-INSERT INTO orders (id, item_Info, date_Info, user_username, uploads_file_name, item_tags_tags)VALUES (14, 'coat of linen', '2023-07-07', 'user3', 'coat of linen.jpg', 'NON_CHEMICAL');
-INSERT INTO orders (id, item_Info, date_Info, user_username, uploads_file_name, item_tags_tags)VALUES (15, 'bag2 of leather', '2023-07-11', 'user2', 'bag2 of leather.jpg', 'SUSTAINABLE');
-INSERT INTO orders (id, item_Info, date_Info, user_username, uploads_file_name, item_tags_tags)VALUES (16, 'bag1 of leather', '2023-07-12', 'user1','bag1 of leather.jpg' , 'ADDITIVE_FREE');
+INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (11, 'hat of linen ', '2023-07-11', 'user6', 'hat of linen.jpg ', 'ADDITIVE_FREE');
+INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (12, 'blouse of linen', '2023-08-01', 'user5', 'blouse of linen.jpg', 'ORGANIC');
+INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (13, 'blouse of silk', '2023-07-08', 'user4','blouse of silk.jpg', 'SUSTAINABLE');
+INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (14, 'coat of linen', '2023-07-07', 'user3', 'coat of linen.jpg', 'NON_CHEMICAL');
+INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (15, 'bag2 of leather', '2023-07-11', 'user2', 'bag2 of leather.jpg', 'SUSTAINABLE');
+INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (16, 'bag1 of leather', '2023-07-12', 'user1','bag1 of leather.jpg' , 'ADDITIVE_FREE');
 

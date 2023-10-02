@@ -44,13 +44,13 @@ public class User {
     }
 
     // RELATIES
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "users")
     @JsonIgnore
-    List<Item> item;
+    List<Item> items;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "users")
     @JsonIgnore
-    List<Order> order;
+    List<Order> orders;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JsonIgnore

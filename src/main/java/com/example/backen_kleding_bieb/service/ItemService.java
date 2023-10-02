@@ -103,11 +103,12 @@ public class ItemService {
 
     private ItemDto transferItemToItemDto(Item item) {
         ItemDto itemDto = new ItemDto();
-        itemDto.setUser(item.getUser());
+        itemDto.setUser(item.getUsers());
         itemDto.setId(item.getId());
         itemDto.setNameInfo(item.getNameInfo());
-        if (item.getUser() != null) {
-            itemDto.setUser(item.getUser());
+
+        if (item.getUsers() != null) {
+            itemDto.setUser(item.getUsers());
         }
         if (item.getOrders() != null) {
             itemDto.setOrders((List<Order>) item.getOrders());
@@ -125,7 +126,7 @@ public class ItemService {
 
     private Item transferItemDtoToItem(ItemDto itemDto) {
         Item item = new Item();
-        item.setUser(itemDto.getUser());
+        item.setUsers(itemDto.getUser());
         item.setId(itemDto.getId());
         item.setNameInfo(itemDto.getNameInfo());
         item.setTags(itemDto.getTags());

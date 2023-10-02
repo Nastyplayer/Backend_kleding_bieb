@@ -45,7 +45,7 @@ public class AccountDto {
     @JsonIncludeProperties({"date", "type"})
     private Subscription subscription;
 
-    @JsonIncludeProperties({"username", "password", "apikey", "email", "comment"})
+    @JsonIncludeProperties({"username", "password",  "email"})
     private User user;
 
 }

@@ -31,32 +31,36 @@ public class Item {
 
     private Long id;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "users_username")
+    private User users;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNameInfo() {
-        return nameInfo;
-    }
-
-    public void setNameInfo(String nameInfo) {
-        this.nameInfo = nameInfo;
-    }
-
-    public Order getOrders() {
-        return orders;
-    }
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public String getNameInfo() {
+//        return nameInfo;
+//    }
+//
+//    public void setNameInfo(String nameInfo) {
+//        this.nameInfo = nameInfo;
+//    }
+//
+//    public Order getOrders() {
+//        return orders;
+//    }
+//    public User getUser() {
+//        return users;
+//    }
+//
+//    public void setUser(User user) {
+//        this.users = user;
+//    }
 
 
     @Column(unique = true, nullable = false)
@@ -64,11 +68,11 @@ public class Item {
 
 
 
-    @ManyToOne
-    @JsonIgnore
-
-    private User user;
-
+//    @ManyToOne
+//    @JsonIgnore
+//
+//    private User users;
+//
 
 
     public void setOrder(Order order) {
