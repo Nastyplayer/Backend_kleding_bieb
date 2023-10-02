@@ -47,7 +47,9 @@ public class OrderDto {
         this.items = item;
     }
 
-
+        public User getUsers() {
+    return null;
+}
     @JsonIncludeProperties({"id", "nameInfo"})
     private List<Item> items;
 

@@ -114,8 +114,8 @@ public class UserService {
     public UserDto fromUser(User user){
 
         var userDto = new UserDto();
-        userDto.order = user.getOrder();
-        userDto.item = user.getItem();
+        userDto.order = user.getOrders();
+        userDto.item = user.getItems();
         userDto.username = user.getUsername();
         userDto.password = user.getPassword();
         userDto.email = user.getEmail();
@@ -130,8 +130,8 @@ public class UserService {
     public User toUser(UserDto userDto) {
 
         var user = new User();
-        user.setOrder(userDto.getOrder());
-        user.setItem(userDto.getItem());
+        user.setOrders(userDto.getOrder());
+        user.setItems(userDto.getItem());
         user.setUsername(userDto.getUsername());
         user.setPassword(userDto.getPassword());
         if(userDto.getAccount()!=null) {

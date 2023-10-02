@@ -56,6 +56,7 @@ public class ItemController {
     @GetMapping("/items/{id}")
     @Transactional
     public ResponseEntity<ItemDto> getItem(@PathVariable Long id) {
+
         return ResponseEntity.ok(itemService.getItem(id));
     }
 

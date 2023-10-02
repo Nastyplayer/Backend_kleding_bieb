@@ -104,9 +104,9 @@ public class AccountService {
             if (accountDto.getId() != null) {
                 accountToUpdate.setId(accountDto.getId());
             }
-            if (accountDto.getUserInfo() != null) {
-                accountToUpdate.setUserInfo(accountDto.getUserInfo());
-            }
+//   VERSCHIL         if (accountDto.getUserInfo() != null) {
+//                accountToUpdate.setUserInfo(accountDto.getUserInfo());
+//            }
 
             if (accountDto.getSubscriptionInfo() != null) {
                 accountToUpdate.setSubscriptionInfo(accountDto.getSubscriptionInfo());
@@ -157,16 +157,24 @@ public class AccountService {
         accountDto.setId(account.getId());
         accountDto.setUserInfo(account.getUserInfo());
         accountDto.setSubscriptionInfo(account.getSubscriptionInfo());
-
+        accountDto.setEmail(account.getEmail());
+        accountDto.setUser(account.getUser());
+        accountDto.setComment(account.getComment());
 
         if (account.getUserInfo() != null) {
             accountDto.setUserInfo(account.getUserInfo());
         }
-        if (account.getUpload() != null) {
-            accountDto.setUpload(account.getUpload());
+        if (account.getEmail() != null) {
+            accountDto.setEmail(account.getEmail());
         }
-        if (account.getSubscription() != null) {
-            accountDto.setSubscription(account.getSubscription());
+        if (account.getComment() != null) {
+            accountDto.setComment(account.getComment());
+        }
+        if (account.getUser() != null) {
+            accountDto.setUser(account.getUser());
+        }
+        if (account.getSubscriptionInfo() != null) {
+            accountDto.setSubscriptionInfo(account.getSubscriptionInfo());
         }
 
         return accountDto;
@@ -178,10 +186,11 @@ public class AccountService {
         account.setId(accountDto.getId());
         account.setUserInfo(accountDto.getUserInfo());
         account.setSubscriptionInfo(accountDto.getSubscriptionInfo());
-
+        account.setEmail(accountDto.getEmail());
+        account.setComment(accountDto.getComment());
         account.setSubscription((Subscription) accountDto.getSubscription());
         account.setUpload((Upload) accountDto.getUpload());
-
+        account.setUser(accountDto.getUser());
         return account;
     }
 
