@@ -104,9 +104,6 @@ public class AccountService {
             if (accountDto.getId() != null) {
                 accountToUpdate.setId(accountDto.getId());
             }
-//   VERSCHIL         if (accountDto.getUserInfo() != null) {
-//                accountToUpdate.setUserInfo(accountDto.getUserInfo());
-//            }
 
             if (accountDto.getSubscriptionInfo() != null) {
                 accountToUpdate.setSubscriptionInfo(accountDto.getSubscriptionInfo());
@@ -170,9 +167,7 @@ public class AccountService {
         if (account.getComment() != null) {
             accountDto.setComment(account.getComment());
         }
-        if (account.getUser() != null) {
-            accountDto.setUser(account.getUser());
-        }
+
         if (account.getSubscriptionInfo() != null) {
             accountDto.setSubscriptionInfo(account.getSubscriptionInfo());
         }

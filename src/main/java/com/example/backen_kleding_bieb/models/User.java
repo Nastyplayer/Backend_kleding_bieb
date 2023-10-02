@@ -19,7 +19,7 @@ import java.util.Set;
 @Getter
 @Setter
 
-/*annotatie   DONE!!!!*/
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -43,7 +43,7 @@ public class User {
 
     }
 
-    // RELATIES
+
     @OneToMany(mappedBy = "users")
     @JsonIgnore
     List<Item> items;
@@ -64,7 +64,7 @@ public class User {
             orphanRemoval = true,
             fetch = FetchType.EAGER)
 
-    // METHODEN
+
     private Set<Authority> authorities = new HashSet<>();
 
 
