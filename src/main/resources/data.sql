@@ -1,10 +1,5 @@
 
 
--- Verwijder de tabel orders
---DROP TABLE IF EXISTS orders CASCADE;
---CREATE TABLE IF NOT EXISTS
- --   orders (id SERIAL PRIMARY KEY, item_Info VARCHAR(255), date_Info DATE, user_username VARCHAR(100));
-
 DROP TABLE IF EXISTS accounts CASCADE;
 CREATE TABLE IF NOT EXISTS accounts (
                                         id SERIAL PRIMARY KEY,
@@ -109,17 +104,10 @@ INSERT INTO item_tags(item_id, tags) VALUES (1006, 'ADDITIVE_FREE');
 
 
 
--- INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username, uploads_file_name, expiration_Date, subscription_Status ) VALUES ( 'user1', 'annual', 'user1@test.nl', '"it is ok and i love it"', 21,  'user1', 'bag1 of leather.jpg', '2023-12-01', 'ACTIVE');
--- INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username, uploads_file_name, expiration_Date, subscription_Status) VALUES ( 'user2', 'on occasion', 'user2@test.nl', '"super nice people"', 22,  'user2', 'bag2 of leather.jpg', '2023-05-11', 'EXPIRE');
--- INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username, uploads_file_name, expiration_Date, subscription_Status ) VALUES ( 'user3', 'annual', 'user3@test.nl', '"wonderfully ideas"', 23, 'user3', 'bag1 of leather.jpg', '2023-11-15', 'ACTIVE' );
--- INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username, uploads_file_name, expiration_Date, subscription_Status) VALUES ( 'user4', 'permanent', 'user4@test.nl', '"amazing crazy bib"', 24,  'user4', 'colbert of cotton.jpg', '2024-02-01', 'ACTIVE');
--- INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username, uploads_file_name, expiration_Date, subscription_Status ) VALUES ( 'user5', 'once in while', 'user5@test.nl', '"its great & a super place"', 25,  'user5', 'coat of silk.jpg', '2023-12-05', 'ACTIVE');
--- INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username, uploads_file_name, expiration_Date, subscription_Status ) VALUES ( 'user6', 'annual', 'user6@test.nl', '"amazing project"', 26, 'user6', 'Gloss of alpaca wool.jpg', '2023-12-15', 'ACTIVE');
-
 ALTER TABLE orders  ADD COLUMN uploads_file_name VARCHAR;
 ALTER TABLE orders  ADD COLUMN item_tags_tags VARCHAR;
 
---INSERT INTO orders (id, item_Info, date_Info, user_username, uploads_file_name, item_tags_tags)VALUES (11, 'gloss of alpaca wool', '2023-07-11', 'user6', 'gloss of alpaca wool.jpg ', 'ADDITIVE_FREE');
+
 INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (11, 'hat of linen ', '2023-07-11', 'user6', 'hat of linen.jpg ', 'ADDITIVE_FREE');
 INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (12, 'blouse of linen', '2023-08-01', 'user5', 'blouse of linen.jpg', 'ORGANIC');
 INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (13, 'blouse of silk', '2023-07-08', 'user4','blouse of silk.jpg', 'SUSTAINABLE');
