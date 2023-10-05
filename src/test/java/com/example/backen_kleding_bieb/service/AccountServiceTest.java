@@ -62,7 +62,7 @@ public class AccountServiceTest {
     @Test
     void getAllAccounts() {
        when(accountRepository.findAll()).thenReturn(List.of(account1, account2));
-       // when(accountRepository.save(any())).thenReturn(account1);  // Voeg deze regel toe
+
 
         List<AccountDto> accountsFound = (accountService.getAllAccounts());
 
