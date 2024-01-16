@@ -3,13 +3,9 @@ package com.example.backen_kleding_bieb.service;
 import com.example.backen_kleding_bieb.dto.UserDto;
 import com.example.backen_kleding_bieb.exceptions.RecordNotFoundException;
 import com.example.backen_kleding_bieb.models.Authority;
-import com.example.backen_kleding_bieb.models.Order;
 import com.example.backen_kleding_bieb.models.User;
 import com.example.backen_kleding_bieb.repository.OrderRepository;
 import com.example.backen_kleding_bieb.repository.UserRepository;
-
-import org.hibernate.engine.spi.SessionDelegatorBaseImpl;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

@@ -48,7 +48,7 @@ public class Order {
     }
 
 
-    @OneToMany( fetch = FetchType.EAGER) //, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany( fetch = FetchType.EAGER)
     @JoinTable(
             name = "order_items",
             joinColumns = @JoinColumn(name = "order_id"),

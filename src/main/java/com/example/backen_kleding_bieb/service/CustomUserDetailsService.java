@@ -1,6 +1,5 @@
 package com.example.backen_kleding_bieb.service;
 
-
 import com.example.backen_kleding_bieb.dto.UserDto;
 import com.example.backen_kleding_bieb.models.Authority;
 import com.example.backen_kleding_bieb.repository.UserRepository;
@@ -11,16 +10,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-/*annotatie !!!   DONE*/
+
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    /*inject userservice !!! DONE */
+
 
 
     @Autowired
@@ -31,10 +29,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         this.userRepository = userRepository;
         this.userService = userService;
     }
-
-//    @Autowired
-//    private AuthorityService authorityService; */
-
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

@@ -97,10 +97,6 @@ public class OrderService {
             if (orderDto.getDateInfo() != null) {
                 orderToUpdate.setDateInfo(orderDto.getDateInfo());
             }
-//            if (orderDto.getUserDto() != null) {
-//                orderToUpdate.setUserDto(orderDto.getUserDto());
-//            }
-
 
             Order savedOrder = orderRepository.save(orderToUpdate);
             return transferOrderToOrderDto(savedOrder);
