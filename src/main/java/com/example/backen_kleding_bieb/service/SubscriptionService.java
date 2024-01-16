@@ -112,7 +112,6 @@ public class SubscriptionService {
     }
 
 
-    //    helper methods.......................................................
     private SubscriptionDto transferSubscriptionToSubscriptionDto(Subscription subscription) {
         SubscriptionDto subscriptionDto = new SubscriptionDto();
         subscriptionDto.setAccount(subscription.getAccount());

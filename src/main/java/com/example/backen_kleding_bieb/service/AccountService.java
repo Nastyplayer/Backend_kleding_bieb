@@ -41,7 +41,6 @@ public class AccountService {
     }
 
 
-    // GetMapping, method for getting all Accounts
     public List<AccountDto> getAllAccounts() {
         List<Account> accounts = accountRepository.findAll();
         List<AccountDto> accountDtos = new ArrayList<>();
