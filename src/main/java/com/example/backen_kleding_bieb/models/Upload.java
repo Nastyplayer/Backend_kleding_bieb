@@ -20,7 +20,7 @@ import lombok.Setter;
 public class Upload {
     @Id
     private String fileName;
-    private String textType;     ///contentType;
+    private String textType;
     private String url;
 
     public Upload(String fileName, String textType, String url) {

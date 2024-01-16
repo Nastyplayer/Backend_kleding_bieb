@@ -4,7 +4,6 @@ import com.example.backen_kleding_bieb.dto.OrderDto;
 import com.example.backen_kleding_bieb.exceptions.RecordNotFoundException;
 import com.example.backen_kleding_bieb.models.Order;
 import com.example.backen_kleding_bieb.repository.OrderRepository;
-import com.example.backen_kleding_bieb.service.OrderService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

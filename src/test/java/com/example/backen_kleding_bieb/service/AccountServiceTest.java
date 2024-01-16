@@ -5,7 +5,6 @@ import com.example.backen_kleding_bieb.exceptions.RecordNotFoundException;
 import com.example.backen_kleding_bieb.models.Account;
 import com.example.backen_kleding_bieb.models.User;
 import com.example.backen_kleding_bieb.repository.AccountRepository;
-import com.example.backen_kleding_bieb.service.AccountService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

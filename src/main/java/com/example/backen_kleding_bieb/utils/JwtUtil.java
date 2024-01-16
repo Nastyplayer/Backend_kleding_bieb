@@ -7,7 +7,6 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,7 +17,6 @@ import java.util.function.Function;
 @Service
 public class JwtUtil {
 
-    // De secret key moet minimaal 256 bits lang zijn, of grofweg 45 characters
     private final static String SECRET_KEY = "123456789012345678901234567890123456789012345";
 
     private Key getSigningKey() {
@@ -39,11 +37,6 @@ public class JwtUtil {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
-    ////////////////////////////////////Extra , Deze werkt wel de anderen blijven deprecated!!!!
-//    private Claims extractAllClaims(String token) {
-//        return Jwts.parserBuilder().setSigningKey(SECRET_KEY.getBytes(StandardCharsets.UTF_8)).build()
-//                .parseClaimsJws(token).getBody();
-//    }
 
 
     private Claims extractAllClaims(String token) {
@@ -66,7 +59,7 @@ public class JwtUtil {
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 10))
-                .signWith( getSigningKey(),SignatureAlgorithm.HS256)     //getSigningKey(),
+                .signWith( getSigningKey(),SignatureAlgorithm.HS256)
                 .compact();
     }
 
