@@ -1,6 +1,5 @@
 package com.example.backen_kleding_bieb.controller;
 
-
 import com.example.backen_kleding_bieb.dto.ItemDto;
 import com.example.backen_kleding_bieb.dto.UploadWithItemDto;
 import com.example.backen_kleding_bieb.models.Upload;
@@ -10,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -44,17 +42,6 @@ public class UploadController {
     }
 
 
-    // Nieuwe methode: download alle bestanden
-//    @GetMapping("/downloadAllFiles")
-//    public ResponseEntity<List<byte[]>> downloadAllFiles() {
-//        List<byte[]> files = service.getAllFiles();
-//
-//
-//        return ResponseEntity.ok()
-//                .body(files);
-//    }
-
-    /////////////nuevo
     @GetMapping("/files")
     public ResponseEntity<List<String>> getFiles() {
         List<String> files = service.getFilesFromUploadDirectory();
@@ -85,18 +72,4 @@ public class UploadController {
 
 
 }
-
-
-//////////////////////////////////////////////////////////////////////////////
-//<byte[]><byte[]>
-//
-//    @GetMapping("/downloadAllFiles")
-//    public ResponseEntity<List<string>> downloadAllFiles() {
-//
-//        List<string> files = service.getDownload();
-//
-//        return ResponseEntity.ok()
-//                .body(files);
-//    }
-//
 

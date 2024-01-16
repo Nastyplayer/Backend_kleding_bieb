@@ -31,8 +31,6 @@ public class AuthenticationController {
         this.jwtUtl = jwtUtl;
     }
 
-    /*  Deze methode geeft de principal (basis user gegevens) terug van de ingelogde gebruiker
-     */
     @GetMapping(value = "/authenticated")
     public ResponseEntity<Object> authenticated(Authentication authentication, Principal principal) {
         return ResponseEntity.ok().body(principal);

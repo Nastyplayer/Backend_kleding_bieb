@@ -133,21 +133,6 @@ public class AccountService {
         }
     }
 
-    //////////////////////
-//
-//    // Assign photo to a account
-//     public void assignPhotoToAccount(String fileName, Long id) {
-//        Optional<Account> optionalAccount = accountRepository.findById(id);
-//         Optional<Upload> fileUploadResponse = uploadRepository.findByFileName(fileName);
-//         if (optionalAccount.isPresent() && fileUploadResponse.isPresent()) {
-//          Upload photo = fileUploadResponse.get();
-//              Account account = optionalAccount.get();
-//           account.setUpload(photo);
-//             accountRepository.save(account);
-//       }
-//    }
-
-
 
     private AccountDto transferAccountToAccountDto(Account account) {
         AccountDto accountDto = new AccountDto();

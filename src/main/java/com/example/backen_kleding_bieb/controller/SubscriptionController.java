@@ -1,7 +1,5 @@
 package com.example.backen_kleding_bieb.controller;
 
-
-
 import com.example.backen_kleding_bieb.dto.SubscriptionDto;
 import com.example.backen_kleding_bieb.service.AccountService;
 import com.example.backen_kleding_bieb.service.SubscriptionService;
@@ -12,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.net.URI;
 import java.util.List;
 

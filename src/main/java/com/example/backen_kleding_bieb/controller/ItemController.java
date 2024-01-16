@@ -12,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.net.URI;
 import java.util.List;
 import java.util.Objects;
@@ -103,13 +102,9 @@ public class ItemController {
     public ResponseEntity<Object> assignPhotoToItem(@Valid  @RequestBody MultipartFile file) {
         String url = ServletUriComponentsBuilder.fromCurrentContextPath().path("/download/")
                 .path(Objects.requireNonNull(file.getOriginalFilename())).toUriString();
-        String photo = UploadService.storeFile(file, url);   ///url
+        String photo = UploadService.storeFile(file, url);
         itemService.assignPhotoToItem(photo);
 
-        ///////////// from video
-//        Upload photo = uploadController.FileUpload(file);
-//        itemService.assignPhotoToItem(photo.getFileName(), id);
-       ////////////////////////////
         return ResponseEntity.noContent().build();
     }
 }

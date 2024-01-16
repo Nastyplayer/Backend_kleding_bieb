@@ -91,15 +91,4 @@ public class AccountController {
         accountService.deleteById(id);
         return ResponseEntity.noContent().build();
     }}
-    //  link photo to a account
-//    @PostMapping("/accounts/{id}/photo")
-//    public ResponseEntity<Object> assignPhotoToAccount(@PathVariable("id") Long id, @RequestBody MultipartFile file) {
-//        String url = ServletUriComponentsBuilder.fromCurrentContextPath().path("/download/")
-//                .path(Objects.requireNonNull(file.getOriginalFilename())).toUriString();
-//        String photo = UploadService.storeFile(file);
-//        accountService.assignPhotoToAccount(photo, id);
-//
-//        return ResponseEntity.noContent().build();
-//    }
-
 
