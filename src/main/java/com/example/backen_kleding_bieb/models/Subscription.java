@@ -1,13 +1,14 @@
 package com.example.backen_kleding_bieb.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
+
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -56,7 +57,7 @@ public class Subscription {
 
 
 
-    @OneToOne (targetEntity = Account.class,  cascade = {CascadeType.ALL})
+    @OneToOne(targetEntity = Account.class,  cascade = {CascadeType.ALL})
 
     @JsonIgnore
     private Account account;
@@ -65,7 +66,7 @@ public class Subscription {
     @ElementCollection(targetClass = SubscriptionStatus.class)
 
     @Enumerated(EnumType.STRING)
-    @Fetch(FetchMode.JOIN)
+//    @Fetch(FetchMode.JOIN)
     List<SubscriptionStatus> subscriptionStatus;
 
 
