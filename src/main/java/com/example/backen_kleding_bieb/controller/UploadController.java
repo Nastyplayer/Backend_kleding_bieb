@@ -26,20 +26,20 @@ public class UploadController {
         this.service = service;
     }
 
-
-    @PostMapping("/upload")
-    Upload singleFileUpload(@RequestParam("file") MultipartFile file){
-
-        // next line makes url. example "http://localhost:8080/download/naam.jpg"
-        String url = ServletUriComponentsBuilder.fromCurrentContextPath().path("/download/").
-                path(Objects.requireNonNull(file.getOriginalFilename())).toUriString();
-
-        String contentType = file.getContentType();
-
-        String fileName = service.storeFile(file, url);
-
-        return new Upload(fileName, contentType, url );
-    }
+// deze mag weg   er wordt niet gebruikt
+//    @PostMapping("/upload")
+//    Upload singleFileUpload(@RequestParam("file") MultipartFile file){
+//
+//        // next line makes url. example "http://localhost:8080/download/naam.jpg"
+//        String url = ServletUriComponentsBuilder.fromCurrentContextPath().path("/download/").
+//                path(Objects.requireNonNull(file.getOriginalFilename())).toUriString();
+//
+//        String contentType = file.getContentType();
+//
+//        String fileName = service.storeFile(file, url);
+//
+//        return new Upload(fileName, contentType, url );
+//    }
 
 
     @GetMapping("/files")
