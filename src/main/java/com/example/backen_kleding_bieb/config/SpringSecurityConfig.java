@@ -118,7 +118,7 @@ public class SpringSecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/upload").permitAll()
 
 
-                .requestMatchers(HttpMethod.POST, "/sendmail").hasRole("ADMIN")
+//                .requestMatchers(HttpMethod.POST, "/sendmail").hasRole("ADMIN")
 
 
                 ///////////// mail  /////////////////////////////////////////////////////////////
