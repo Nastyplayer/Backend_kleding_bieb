@@ -103,6 +103,8 @@ public class ItemController {
     public ResponseEntity<Object> assignPhotoToItem(@Valid  @RequestParam MultipartFile file) {
         String url = ServletUriComponentsBuilder.fromCurrentContextPath().path("/download/")
                 .path(Objects.requireNonNull(file.getOriginalFilename())).toUriString();
+
+
         String photo = UploadService.storeFile(file, url);
         itemService.assignPhotoToItem(photo);
 
