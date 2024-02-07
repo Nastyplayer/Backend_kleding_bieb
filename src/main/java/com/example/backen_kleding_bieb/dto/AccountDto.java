@@ -38,8 +38,8 @@ public class AccountDto {
     private String comment;
 
 
-    @JsonIncludeProperties({"url", "fileName", "textType"})
-    private Upload upload;
+//    @JsonIncludeProperties({"url", "fileName", "textType"})
+//    private Upload upload;
 
 
     @JsonIncludeProperties({"date", "type"})

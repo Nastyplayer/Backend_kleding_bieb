@@ -52,17 +52,17 @@ public class Item {
     @JsonIgnore
     private Order orders;
 
-    @OneToOne
-    Upload uploads;
+//    @OneToOne
+//    Upload uploads;
+//
 
 
-
-    public void setUpload(Upload photo) {
-    }
-
-    public Upload getUpload() {
-        return uploads;
-    }
+//    public void setUpload(Upload photo) {
+//    }
+//
+//    public Upload getUpload() {
+//        return uploads;
+//    }
 
 
 
