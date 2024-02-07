@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
@@ -42,8 +43,12 @@ public class UploadService {
 
     }
 
+
+
     public String storeFile(MultipartFile file, String url) {
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        Path filePath = Paths.get(fileStoragePath + File.separator + fileName);
+
 
         try {
             // Controleer of de bestandsnaam veilig is
@@ -59,6 +64,7 @@ public class UploadService {
             throw new RuntimeException("Kon het bestand niet opslaan: " + fileName, e);
         }
     }
+
 
     public Resource downLoadFile(String fileName) {
         try {

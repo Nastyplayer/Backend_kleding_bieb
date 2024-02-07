@@ -1,3 +1,4 @@
+
 package com.example.backen_kleding_bieb.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,8 +26,8 @@ import java.util.List;
 public class Subscription {
 
     @Id
-      @GeneratedValue(strategy = GenerationType.IDENTITY)
-      @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
     private String typeSubscription;
 
