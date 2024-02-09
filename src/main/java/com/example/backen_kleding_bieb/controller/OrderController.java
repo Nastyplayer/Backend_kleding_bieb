@@ -1,14 +1,15 @@
 package com.example.backen_kleding_bieb.controller;
 
 import com.example.backen_kleding_bieb.dto.OrderDto;
-import com.example.backen_kleding_bieb.repository.OrderRepository;
 import com.example.backen_kleding_bieb.service.*;
-import jakarta.validation.Valid;
+//import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -19,22 +20,13 @@ public class OrderController {
 
 
 
-    private final AccountService accountService;
-    private final UploadService uploadService;
-    private final UserService userService;
-    private final ItemService itemService;
-    private final OrderRepository orderRepository;
+
     private final OrderService orderService;
 
-    public OrderController(OrderService orderService, AccountService accountService, UploadService uploadService,
-                           UserService userService, ItemService itemService, OrderRepository orderRepository) {
+    public OrderController(OrderService orderService) {
         this.orderService = orderService;
-        this.accountService = accountService;
-        this.uploadService = uploadService;
-        this.userService = userService;
-        this.itemService = itemService;
-        this.orderRepository = orderRepository;
     }
+
 
     @GetMapping("/orders")
 

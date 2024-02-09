@@ -1,6 +1,7 @@
 package com.example.backen_kleding_bieb.models;
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 

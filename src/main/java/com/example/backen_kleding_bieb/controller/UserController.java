@@ -13,7 +13,6 @@ import java.util.Map;
 
 @CrossOrigin
 @RestController
-@RequestMapping
 public class UserController {
 
 

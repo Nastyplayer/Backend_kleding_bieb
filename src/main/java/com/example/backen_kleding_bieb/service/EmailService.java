@@ -3,8 +3,9 @@ package com.example.backen_kleding_bieb.service;
 
 import com.example.backen_kleding_bieb.models.Email;
 import com.example.backen_kleding_bieb.repository.EmailRepository;
-import jakarta.mail.MessagingException;
-import jakarta.mail.internet.MimeMessage;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailMessage;
 import org.springframework.mail.MailParseException;
@@ -12,12 +13,15 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import java.io.File;
 import java.util.Date;
 
 
 @Service
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class EmailService implements EmailRepository {
     private JavaMailSender javaMailSender;

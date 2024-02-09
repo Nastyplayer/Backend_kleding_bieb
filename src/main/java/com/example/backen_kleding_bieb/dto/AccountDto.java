@@ -5,15 +5,17 @@ import com.example.backen_kleding_bieb.models.Subscription;
 import com.example.backen_kleding_bieb.models.Upload;
 import com.example.backen_kleding_bieb.models.User;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
+//import jakarta.persistence.Id;
+//import jakarta.validation.constraints.Email;
+//import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
+import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 
 @NoArgsConstructor

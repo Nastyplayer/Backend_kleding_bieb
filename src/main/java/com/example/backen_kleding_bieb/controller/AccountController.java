@@ -1,18 +1,15 @@
 package com.example.backen_kleding_bieb.controller;
 
 import com.example.backen_kleding_bieb.dto.AccountDto;
-import com.example.backen_kleding_bieb.repository.AccountRepository;
-import com.example.backen_kleding_bieb.repository.SubscriptionRepository;
 import com.example.backen_kleding_bieb.service.AccountService;
-import com.example.backen_kleding_bieb.service.UploadService;
-import com.example.backen_kleding_bieb.service.UserService;
-import jakarta.validation.Valid;
+//import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -22,20 +19,8 @@ import java.util.List;
 public class AccountController {
     private final AccountService accountService;
 
-    private final UploadService UploadService;
-
-    private final UserService UserService;
-    private final SubscriptionRepository subscriptionRepository;
-    private final AccountRepository accountRepository;
-
-    public AccountController(AccountService accountService, UploadService uploadService , UserService userService,
-                             SubscriptionRepository subscriptionRepository,
-                             AccountRepository accountRepository) {
+    public AccountController(AccountService accountService) {
         this.accountService = accountService;
-        this.UploadService = uploadService;
-        this.UserService = userService;
-        this.subscriptionRepository = subscriptionRepository;
-        this.accountRepository = accountRepository;
     }
 
 

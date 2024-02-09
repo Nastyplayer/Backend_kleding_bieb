@@ -1,21 +1,30 @@
 package com.example.backen_kleding_bieb.models;
 
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 //import lombok.AllArgsConstructor;
 //import lombok.Getter;
 //import lombok.NoArgsConstructor;
 //import lombok.Setter;
 //
 
-//@NoArgsConstructor
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@NoArgsConstructor
 //@AllArgsConstructor
+
+@Getter
+@Setter
 //
-//@Getter
-//@Setter
-//
-//@Entity
-//@Table(name = "uploads")
+@Entity
+@Table(name = "uploads")
 
 public class Upload {
     @Id

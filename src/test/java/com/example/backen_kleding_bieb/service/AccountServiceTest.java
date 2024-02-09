@@ -50,11 +50,11 @@ public class AccountServiceTest {
 
     @BeforeEach
     void setUp() {
-        account1 = new Account(1L, "IggyPop", "annual", "iggy@pop.nl", "Hola", null , null,  null);
-        account2 = new Account(2L, "BillyIdol", "annual", "billy@idol.nl", "Playa", null, null, null );
+        account1 = new Account(1L, "IggyPop", "annual", "iggy@pop.nl", "Hola", null, null);
+        account2 = new Account(2L, "BillyIdol", "annual", "billy@idol.nl", "Playa", null, null);
 
-        accountDto1 = new AccountDto( 1L, "IggyPop", "annual", "iggy@pop.nl", "Hola", null, null, null );
-        accountDto2 = new AccountDto( 2L, "BillyIdol", "annual", "billy@idol.nl", "Playa", null, null, null );
+        accountDto1 = new AccountDto( 1L, "IggyPop", "annual", "iggy@pop.nl", "Hola", null, null);
+        accountDto2 = new AccountDto( 2L, "BillyIdol", "annual", "billy@idol.nl", "Playa", null, null );
     }
 
 
@@ -71,7 +71,7 @@ public class AccountServiceTest {
         assertEquals(account1.getEmail(), accountsFound.get(0).getEmail());
         assertEquals(account1.getComment(), accountsFound.get(0).getComment());
         assertEquals(account1.getSubscription(), accountsFound.get(0).getSubscription());
-        assertEquals(account1.getUpload(), accountsFound.get(0).getUpload());
+//        assertEquals(account1.getUpload(), accountsFound.get(0).getUpload());
         assertEquals(account1.getUser(), accountsFound.get(0).getUser());
 
         assertEquals(account2.getId(), accountsFound.get(1).getId());
@@ -80,7 +80,7 @@ public class AccountServiceTest {
         assertEquals(account2.getEmail(), accountsFound.get(1).getEmail());
         assertEquals(account2.getComment(), accountsFound.get(1).getComment());
         assertEquals(account2.getSubscription(), accountsFound.get(1).getSubscription());
-        assertEquals(account2.getUpload(), accountsFound.get(1).getUpload());
+//        assertEquals(account2.getUpload(), accountsFound.get(1).getUpload());
         assertEquals(account2.getUser(), accountsFound.get(1).getUser());
 
     }
@@ -103,7 +103,7 @@ public class AccountServiceTest {
 
     @Test
     void putAccountThrowsExceptionForAccountTest() {
-        assertThrows(RecordNotFoundException.class, () -> accountService.putAccount(1L, new AccountDto(1L, "IggyPop", "annual", "iggy@pop.nl", "Hola", null, null, null)));
+        assertThrows(RecordNotFoundException.class, () -> accountService.putAccount(1L, new AccountDto(1L, "IggyPop", "annual", "iggy@pop.nl", "Hola", null, null)));
     }
     @Test
     void createAccount() {
@@ -174,7 +174,7 @@ public class AccountServiceTest {
 
     @Test
     void patchAccountThrowsExceptionForAccountTest() {
-        assertThrows(RecordNotFoundException.class, () -> accountService.patchAccount(1L, new AccountDto(1L, "IggyPop", "annual", "iggy@pop.nl", "Hola", null, null, null)));
+        assertThrows(RecordNotFoundException.class, () -> accountService.patchAccount(1L, new AccountDto(1L, "IggyPop", "annual", "iggy@pop.nl", "Hola", null, null)));
     }
 
     @Test

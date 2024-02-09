@@ -52,8 +52,8 @@ public class ItemIntegrationTest {
         if(itemRepository.count()>0) {
             itemRepository.deleteAll();
         }
-        item100 = new Item(1L, user1, "blouse", null, null,  null );
-        item200 = new Item(2L, user2,"hat", null, null,  null );
+        item100 = new Item(1L, user1, "blouse", null, null );
+        item200 = new Item(2L, user2,"hat", null, null);
 
 
         item100 = itemRepository.save(item100);

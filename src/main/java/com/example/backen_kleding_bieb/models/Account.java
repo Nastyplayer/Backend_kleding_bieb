@@ -1,17 +1,15 @@
 package com.example.backen_kleding_bieb.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+//import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
+import javax.persistence.*;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
 
 @Getter
 @Setter
@@ -33,33 +31,27 @@ public class Account  {
     private String comment;
 
 
-    public Subscription getSubscription() {
-        return subscription;
-    }
 
-    public void setSubscription(Subscription subscription) {
+
+    public Account(Long id, String userInfo, String subscriptionInfo, String email, String comment, Subscription subscription, Upload upload) {
+        this.id = id;
+        this.userInfo = userInfo;
+        this.subscriptionInfo = subscriptionInfo;
+        this.email = email;
+        this.comment = comment;
         this.subscription = subscription;
+        this.upload = upload;
     }
-
-    public Upload getUpload() {
-        return uploads;
-    }
-
-
-    public void setUpload(Upload upload) {
-        this.uploads = uploads;
-    }
-
-
-
-
     @OneToOne  ( mappedBy = "account")
     private Subscription subscription;
 
 
+
     @OneToOne
     @JsonIgnore
-    private Upload uploads;
+    private Upload upload;
+
+//    uploads
 
     @OneToOne( mappedBy = "account")
     @JsonIgnore
