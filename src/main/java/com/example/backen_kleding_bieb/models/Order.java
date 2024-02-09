@@ -3,17 +3,17 @@ package com.example.backen_kleding_bieb.models;
 
 import com.example.backen_kleding_bieb.dto.UserDto;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
 @NoArgsConstructor
-@AllArgsConstructor
 
 @Getter
 @Setter
@@ -48,7 +48,7 @@ public class Order {
     }
 
 
-    @OneToMany( fetch = FetchType.EAGER)
+    @OneToMany( fetch = FetchType.LAZY)
     @JoinTable(
             name = "order_items",
             joinColumns = @JoinColumn(name = "order_id"),

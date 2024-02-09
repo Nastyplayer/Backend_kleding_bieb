@@ -66,20 +66,7 @@ public class UploadService {
     }
 
 
-    public Resource downLoadFile(String fileName) {
-        try {
-            Path filePath = fileStoragePath.resolve(fileName).normalize();
-            Resource resource = new UrlResource(filePath.toUri());
 
-            if (resource.exists()) {
-                return resource;
-            } else {
-                throw new RuntimeException("Bestand niet gevonden: " + fileName);
-            }
-        } catch (MalformedURLException e) {
-            throw new RuntimeException("Bestand niet gevonden: " + fileName, e);
-        }
-    }
 
 
     public List<byte[]> getAllFiles() {
@@ -88,16 +75,54 @@ public class UploadService {
 
         for (Upload upload : uploads) {
             String fileName = upload.getFileName();
-            Resource resource = downLoadFile(fileName);
             try {
-                files.add(resource.getContentAsByteArray());
+                Resource resource = new UrlResource(fileStoragePath.resolve(fileName).toUri());
+                if (resource.exists()) {
+                    files.add(resource.getInputStream().readAllBytes());
+                } else {
+                    throw new RuntimeException("Bestand niet gevonden: " + fileName);
+                }
             } catch (IOException e) {
-                throw new RuntimeException("Issue in reading the file", e);
+                throw new RuntimeException("Fout bij het lezen van bestand: " + fileName, e);
             }
         }
 
         return files;
     }
+
+//
+//    public Resource downLoadFile(String fileName) {
+//        try {
+//            Path filePath = fileStoragePath.resolve(fileName).normalize();
+//            Resource resource = new UrlResource(filePath.toUri());
+//
+//            if (resource.exists()) {
+//                return resource;
+//            } else {
+//                throw new RuntimeException("Bestand niet gevonden: " + fileName);
+//            }
+//        } catch (MalformedURLException e) {
+//            throw new RuntimeException("Bestand niet gevonden: " + fileName, e);
+//        }
+//    }
+//
+//
+//    public List<byte[]> getAllFiles() {
+//        List<byte[]> files = new ArrayList<>();
+//        List<Upload> uploads = repository.findAll();
+//
+//        for (Upload upload : uploads) {
+//            String fileName = upload.getFileName();
+//            Resource resource = downLoadFile(fileName);
+//            try {
+//                files.add(resource.getContentAsByteArray());
+//            } catch (IOException e) {
+//                throw new RuntimeException("Issue in reading the file", e);
+//            }
+//        }
+//
+//        return files;
+//    }
 
     /////////nuevo////
     public List<String> getFilesFromUploadDirectory() {

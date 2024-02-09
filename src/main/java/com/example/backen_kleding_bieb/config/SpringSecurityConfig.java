@@ -3,6 +3,7 @@ package com.example.backen_kleding_bieb.config;
 
 import com.example.backen_kleding_bieb.filter.JwtRequestFilter;
 import com.example.backen_kleding_bieb.service.CustomUserDetailsService;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -53,12 +54,6 @@ public class SpringSecurityConfig {
                 .and()
                 .build();
     }
-//     @Bean
-//     public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//     }
-
-    // Authorizatie met jwt
 
     @Bean
     protected SecurityFilterChain filter (HttpSecurity http) throws Exception {
@@ -71,70 +66,69 @@ public class SpringSecurityConfig {
                 .authorizeHttpRequests()
 
 
-                .requestMatchers(HttpMethod.POST, "/users").permitAll()
-                .requestMatchers(HttpMethod.GET, "/users").permitAll()
-                .requestMatchers(HttpMethod.GET, "/users/**").permitAll()
-                .requestMatchers(HttpMethod.PUT, "/users/**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.PATCH, "/users/**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.DELETE, "/users/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/users").permitAll()
+                .antMatchers(HttpMethod.GET, "/users").permitAll()
+                .antMatchers(HttpMethod.GET, "/users/**").permitAll()
+                .antMatchers(HttpMethod.PUT, "/users/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PATCH, "/users/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/users/**").hasRole("ADMIN")
 
                 //  a photo to a item
-                .requestMatchers(HttpMethod.POST, "/items/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/items/**").permitAll()
 
-                .requestMatchers(HttpMethod.POST, "/items").permitAll()
-                .requestMatchers(HttpMethod.GET, "/items").permitAll()
-                .requestMatchers(HttpMethod.GET, "/items/**").hasAnyRole("ADMIN", "USER")
-                .requestMatchers(HttpMethod.PUT, "/items/**").hasAnyRole("ADMIN")
-                .requestMatchers(HttpMethod.PATCH, "/items/**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.DELETE, "/items/**").hasRole("ADMIN")
-
-
-                .requestMatchers(HttpMethod.GET, "/orders").permitAll()
-                .requestMatchers(HttpMethod.GET, "/orders/**").hasAnyRole("ADMIN")
-                .requestMatchers(HttpMethod.POST, "/orders").permitAll()
-                .requestMatchers(HttpMethod.PATCH, "/orders/**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.PUT, "/orders/**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.DELETE, "/orders/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/items").permitAll()
+                .antMatchers(HttpMethod.GET, "/items").permitAll()
+                .antMatchers(HttpMethod.GET, "/items/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.PUT, "/items/**").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.PATCH, "/items/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/items/**").hasRole("ADMIN")
 
 
-                .requestMatchers(HttpMethod.GET, "/accounts").hasAnyRole("ADMIN", "USER")
-                .requestMatchers(HttpMethod.GET, "/accounts/**").hasAnyRole("ADMIN")
-                .requestMatchers(HttpMethod.POST, "/accounts").hasAnyRole("ADMIN", "USER")
-                .requestMatchers(HttpMethod.PUT, "/accounts/**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.PATCH, "/accounts/**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.DELETE, "/accounts/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/orders").permitAll()
+                .antMatchers(HttpMethod.GET, "/orders/**").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/orders").permitAll()
+                .antMatchers(HttpMethod.PATCH, "/orders/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/orders/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/orders/**").hasRole("ADMIN")
 
 
-                .requestMatchers(HttpMethod.GET, "/subscriptions").hasAnyRole("ADMIN", "USER")
-                .requestMatchers(HttpMethod.GET, "/subscriptions/**").hasAnyRole("ADMIN")
-                .requestMatchers(HttpMethod.POST, "/subscriptions").hasAnyRole("ADMIN", "USER")
-                .requestMatchers(HttpMethod.PUT, "/subscriptions/**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.DELETE, "/subscriptions/**").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.PATCH, "/subscriptions/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/accounts").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.GET, "/accounts/**").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/accounts").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.PUT, "/accounts/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PATCH, "/accounts/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/accounts/**").hasRole("ADMIN")
 
 
-                .requestMatchers(HttpMethod.GET, "/downloadAllFiles").permitAll()
-                .requestMatchers(HttpMethod.GET, "/files").permitAll()
-                .requestMatchers(HttpMethod.POST, "/upload").permitAll()
+                .antMatchers(HttpMethod.GET, "/subscriptions").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.GET, "/subscriptions/**").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/subscriptions").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.PUT, "/subscriptions/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/subscriptions/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PATCH, "/subscriptions/**").hasRole("ADMIN")
+
+
+                .antMatchers(HttpMethod.GET, "/downloadAllFiles").permitAll()
+                .antMatchers(HttpMethod.GET, "/files").permitAll()
+                .antMatchers(HttpMethod.POST, "/upload").permitAll()
 
 
 //
 
 
                 ///////////// mail  /////////////////////////////////////////////////////////////
-                .requestMatchers(HttpMethod.POST,"/sendMail").hasRole("ADMIN")
-                .requestMatchers("/sendMailWithAttachment").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/sendMail").hasRole("ADMIN")
+                .antMatchers("/sendMailWithAttachment").hasRole("ADMIN")
 
                 /////////// up and download   /////////////////////////////////////////////////
-                .requestMatchers("/upload/**").hasAnyRole("ADMIN", "USER")
-                .requestMatchers("/download/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/upload/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/download/**").hasAnyRole("ADMIN", "USER")
 
                 ///////////// authentication     ////////////////////////////////////////////////////
-                .requestMatchers("/authenticated").authenticated()
-                .requestMatchers("/authenticate").permitAll()
+                .antMatchers("/authenticated").authenticated()
+                .antMatchers("/authenticate").permitAll()
 
 
-                .anyRequest().denyAll()
 
                 .and()
                 .sessionManagement()

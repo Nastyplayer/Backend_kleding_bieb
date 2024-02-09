@@ -4,7 +4,6 @@ import com.example.backen_kleding_bieb.dto.AccountDto;
 import com.example.backen_kleding_bieb.exceptions.RecordNotFoundException;
 import com.example.backen_kleding_bieb.models.Account;
 import com.example.backen_kleding_bieb.models.Subscription;
-import com.example.backen_kleding_bieb.models.Upload;
 import com.example.backen_kleding_bieb.repository.*;
 import org.springframework.stereotype.Service;
 
@@ -19,25 +18,9 @@ public class AccountService {
 
 
     private final AccountRepository accountRepository;
-    private final UserRepository userRepository;
-    private final ItemRepository itemRepository;
-    private final OrderRepository orderRepository;
-    private final SubscriptionRepository subscriptionRepository;
-    private final UploadRepository uploadRepository;
-    private final EmailService emailService;
 
-
-    public AccountService(AccountRepository accountRepository, UserRepository userRepository, ItemRepository itemRepository,
-                          OrderRepository orderRepository, SubscriptionRepository subscriptionRepository,
-                          UploadRepository uploadRepository, EmailService emailService) {
+    public AccountService(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
-        this.userRepository = userRepository;
-        this.itemRepository = itemRepository;
-        this.orderRepository = orderRepository;
-        this.subscriptionRepository = subscriptionRepository;
-        this.uploadRepository = uploadRepository;
-        this.emailService = emailService;
-
     }
 
 
@@ -168,7 +151,7 @@ public class AccountService {
         account.setEmail(accountDto.getEmail());
         account.setComment(accountDto.getComment());
         account.setSubscription((Subscription) accountDto.getSubscription());
-        account.setUpload((Upload) accountDto.getUpload());
+//        account.setUpload((Upload) accountDto.getUpload());
         account.setUser(accountDto.getUser());
         return account;
     }

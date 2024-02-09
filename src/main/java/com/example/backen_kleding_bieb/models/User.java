@@ -1,18 +1,19 @@
 package com.example.backen_kleding_bieb.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
 
 @Getter
 @Setter
@@ -24,7 +25,6 @@ public class User {
 
 
     @Id
-
     @Column(nullable = false, unique = true)
     private String username;
 

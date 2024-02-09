@@ -21,12 +21,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
 
-    @Autowired
-    private UserRepository userRepository;
     private final UserService userService;
 
-    public CustomUserDetailsService(UserService userService,  UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public CustomUserDetailsService(UserService userService ) {
+
         this.userService = userService;
     }
 

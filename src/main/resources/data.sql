@@ -76,6 +76,7 @@ INSERT INTO uploads (file_name, text_Type, url) VALUES ('hat of linen.jpg', 'ima
 --INSERT INTO uploads (file_name, text_Type, url) VALUES ('gloss of alpaca wool.jpg', 'image/jpeg', 'http://localhost:8083/download/glossofalpacawool.jpg');
 
 
+ALTER TABLE items ADD COLUMN uploads_file_name VARCHAR(255);
 
 ALTER TABLE items  ADD COLUMN order_id INT;
 INSERT INTO items (id, name_Info, users_username, order_id, uploads_file_name) VALUES (1001, 'hat of linen', 'user6', 16, 'hat of linen.jpg');

@@ -1,7 +1,7 @@
 
 package com.example.backen_kleding_bieb.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,11 +10,11 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 
+import javax.persistence.*;
 import java.util.List;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
 
 @Getter
 @Setter
@@ -90,6 +90,6 @@ public class Item {
 
     @ElementCollection(targetClass = Tags.class)
     @Enumerated(EnumType.STRING)
-    @Fetch(FetchMode.JOIN)
+//    @Fetch(FetchMode.JOIN)
     List<Tags> tags;
 }

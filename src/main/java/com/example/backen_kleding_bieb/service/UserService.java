@@ -4,7 +4,6 @@ import com.example.backen_kleding_bieb.dto.UserDto;
 import com.example.backen_kleding_bieb.exceptions.RecordNotFoundException;
 import com.example.backen_kleding_bieb.models.Authority;
 import com.example.backen_kleding_bieb.models.User;
-import com.example.backen_kleding_bieb.repository.OrderRepository;
 import com.example.backen_kleding_bieb.repository.UserRepository;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,14 +20,10 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final OrderRepository OrderRepository;
 
-
-
-    public UserService(UserRepository userRepository, OrderRepository orderRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
-        this.OrderRepository = orderRepository;
     }
 
 
