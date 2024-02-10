@@ -3,11 +3,11 @@ package com.example.backen_kleding_bieb.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-//import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 
 import javax.persistence.*;
@@ -67,7 +67,7 @@ public class Subscription {
     @ElementCollection(targetClass = SubscriptionStatus.class)
 
     @Enumerated(EnumType.STRING)
-//    @Fetch(FetchMode.JOIN)
+    @Fetch(FetchMode.JOIN)
     List<SubscriptionStatus> subscriptionStatus;
 
 

@@ -29,16 +29,18 @@ public class ItemController {
 
     private final UploadService UploadService;
     private ItemService itemService;
-    private UploadController uploadController;
+//    private UploadController uploadController;
 
     @Autowired
     public ItemController(ItemService itemService, AccountService accountService, AccountController accountController,
                           OrderController orderController,
-                          OrderService orderService, UploadController uploadController, UploadService uploadService,
+                          OrderService orderService,
+//                          UploadController uploadController
+                          UploadService uploadService,
                           UserController userController, UserService userService, ItemService itemService1) {
         this.accountService = accountService;
         this.orderService = orderService;
-        this.UploadService = uploadService;
+       this.UploadService = uploadService;
         this.userService = userService;
         this.itemService = itemService;
     }

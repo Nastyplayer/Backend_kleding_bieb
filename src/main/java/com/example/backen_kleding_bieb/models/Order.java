@@ -56,8 +56,6 @@ public class Order {
     )
     List<Item> items;
 
-
-
     @ManyToOne
     private User users;
 

@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS accounts (
     email VARCHAR(255),
     comment VARCHAR(255),
     subscription_id INT,
-    uploads_file_name VARCHAR(255), -- Add the uploads_file_name column
+--     upload_file_name VARCHAR(255), -- Add the upload_file_name column
     user_username VARCHAR(255),
     expiration_date DATE,
     subscription_Status VARCHAR(255)
@@ -43,12 +43,6 @@ INSERT INTO authorities (username, authority) VALUES ('user5', 'ROLE_USER');
 INSERT INTO authorities (username, authority) VALUES ('user6', 'ROLE_USER');
 
 
-INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username, uploads_file_name, expiration_Date, subscription_Status ) VALUES ( 'user1', 'annual', 'user1@test.nl', '"it is ok and i love it"', 21,  'user1', 'bag1 of leather.jpg', '2023-12-01', 'ACTIVE');
-INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username, uploads_file_name, expiration_Date, subscription_Status) VALUES ( 'user2', 'on occasion', 'user2@test.nl', '"super nice people"', 22,  'user2', 'bag2 of leather.jpg', '2023-05-11', 'EXPIRE');
-INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username, uploads_file_name, expiration_Date, subscription_Status ) VALUES ( 'user3', 'annual', 'user3@test.nl', '"wonderfully ideas"', 23, 'user3', 'bag1 of leather.jpg', '2023-11-15', 'ACTIVE' );
-INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username, uploads_file_name, expiration_Date, subscription_Status) VALUES ( 'user4', 'permanent', 'user4@test.nl', '"amazing crazy bib"', 24,  'user4', 'colbert of cotton.jpg', '2024-02-01', 'ACTIVE');
-INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username, uploads_file_name, expiration_Date, subscription_Status ) VALUES ( 'user5', 'once in while', 'user5@test.nl', '"its great & a super place"', 25,  'user5', 'coat of silk.jpg', '2023-12-05', 'ACTIVE');
-INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username, uploads_file_name, expiration_Date, subscription_Status ) VALUES ( 'user6', 'annual', 'user6@test.nl', '"amazing project"', 26, 'user6', 'Gloss of alpaca wool.jpg', '2023-12-15', 'ACTIVE');
 
 
 INSERT INTO subscriptions (id, type_Subscription, expiration_Date) VALUES (21,'annual', '2023-12-01');
@@ -66,6 +60,13 @@ INSERT INTO subscription_Subscription_Status (subscription_id, subscription_Stat
 INSERT INTO subscription_Subscription_Status (subscription_id, subscription_Status) VALUES (25, 'ACTIVE');
 INSERT INTO subscription_Subscription_Status (subscription_id, subscription_Status) VALUES (26, 'ACTIVE');
 
+INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username,  expiration_Date, subscription_Status ) VALUES ( 'user1', 'annual', 'user1@test.nl', '"it is ok and i love it"', 21,  'user1',  '2023-12-01', 'ACTIVE');
+INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username,  expiration_Date, subscription_Status) VALUES ( 'user2', 'on occasion', 'user2@test.nl', '"super nice people"', 22,  'user2',  '2023-05-11', 'EXPIRE');
+INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username,  expiration_Date, subscription_Status ) VALUES ( 'user3', 'annual', 'user3@test.nl', '"wonderfully ideas"', 23, 'user3',  '2023-11-15', 'ACTIVE' );
+INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username,  expiration_Date, subscription_Status) VALUES ( 'user4', 'permanent', 'user4@test.nl', '"amazing crazy bib"', 24,  'user4',  '2024-02-01', 'ACTIVE');
+INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username,  expiration_Date, subscription_Status ) VALUES ( 'user5', 'once in while', 'user5@test.nl', '"its great & a super place"', 25,  'user5', '2023-12-05', 'ACTIVE');
+INSERT INTO accounts (user_Info, subscription_Info,  email, comment, subscription_id,  user_username,  expiration_Date, subscription_Status ) VALUES ( 'user6', 'annual', 'user6@test.nl', '"amazing project"', 26, 'user6',  '2023-12-15', 'ACTIVE');
+
 
 INSERT INTO uploads (file_name, text_Type, url) VALUES ('bag1 of leather.jpg', 'image/jpeg', 'http://localhost:8083/download/bag1ofleather.jpg');
 INSERT INTO uploads (file_name, text_Type, url) VALUES ('bag2 of leather.jpg', 'image/jpeg', 'http://localhost:8083/download/bag2ofleather.jpg');
@@ -76,7 +77,7 @@ INSERT INTO uploads (file_name, text_Type, url) VALUES ('hat of linen.jpg', 'ima
 --INSERT INTO uploads (file_name, text_Type, url) VALUES ('gloss of alpaca wool.jpg', 'image/jpeg', 'http://localhost:8083/download/glossofalpacawool.jpg');
 
 
-ALTER TABLE items ADD COLUMN uploads_file_name VARCHAR(255);
+ALTER TABLE items ADD COLUMN upload_file_name VARCHAR(255);
 
 ALTER TABLE items  ADD COLUMN order_id INT;
 INSERT INTO items (id, name_Info, users_username, order_id, uploads_file_name) VALUES (1001, 'hat of linen', 'user6', 16, 'hat of linen.jpg');
@@ -105,14 +106,13 @@ INSERT INTO item_tags(item_id, tags) VALUES (1006, 'ADDITIVE_FREE');
 
 
 
-ALTER TABLE orders  ADD COLUMN uploads_file_name VARCHAR;
+-- ALTER TABLE orders  ADD COLUMN upload_file_name VARCHAR;
 ALTER TABLE orders  ADD COLUMN item_tags_tags VARCHAR;
 
 
-INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (11, 'hat of linen ', '2023-07-11', 'user6', 'hat of linen.jpg ', 'ADDITIVE_FREE');
-INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (12, 'blouse of linen', '2023-08-01', 'user5', 'blouse of linen.jpg', 'ORGANIC');
-INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (13, 'blouse of silk', '2023-07-08', 'user4','blouse of silk.jpg', 'SUSTAINABLE');
-INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (14, 'coat of linen', '2023-07-07', 'user3', 'coat of linen.jpg', 'NON_CHEMICAL');
-INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (15, 'bag2 of leather', '2023-07-11', 'user2', 'bag2 of leather.jpg', 'SUSTAINABLE');
-INSERT INTO orders (id, item_Info, date_Info, users_username, uploads_file_name, item_tags_tags)VALUES (16, 'bag1 of leather', '2023-07-12', 'user1','bag1 of leather.jpg' , 'ADDITIVE_FREE');
-
+INSERT INTO orders (id, item_Info, date_Info, users_username,  item_tags_tags)VALUES (11, 'hat of linen ', '2023-07-11', 'user6',  'ADDITIVE_FREE');
+INSERT INTO orders (id, item_Info, date_Info, users_username, item_tags_tags)VALUES (12, 'blouse of linen', '2023-08-01', 'user5',  'ORGANIC');
+INSERT INTO orders (id, item_Info, date_Info, users_username,  item_tags_tags)VALUES (13, 'blouse of silk', '2023-07-08', 'user4', 'SUSTAINABLE');
+INSERT INTO orders (id, item_Info, date_Info, users_username,  item_tags_tags)VALUES (14, 'coat of linen', '2023-07-07', 'user3',  'NON_CHEMICAL');
+INSERT INTO orders (id, item_Info, date_Info, users_username,  item_tags_tags)VALUES (15, 'bag2 of leather', '2023-07-11', 'user2', 'SUSTAINABLE');
+INSERT INTO orders (id, item_Info, date_Info, users_username,  item_tags_tags)VALUES (16, 'bag1 of leather', '2023-07-12', 'user1', 'ADDITIVE_FREE');

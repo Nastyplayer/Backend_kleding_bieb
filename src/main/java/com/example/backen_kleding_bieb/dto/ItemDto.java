@@ -34,8 +34,8 @@ public class ItemDto {
 
     List<Item.Tags> tags;
 
-    @JsonIncludeProperties({"url", "fileName", "textType"})
-    private Upload upload;
+//    @JsonIncludeProperties({"url", "fileName", "textType"})
+//    private Upload upload;
 
     @JsonIncludeProperties({"username", "password", "email"})
 

@@ -52,9 +52,9 @@ public class Item {
     @JsonIgnore
     private Order orders;
 
-//    @OneToOne
-//    Upload uploads;
-//
+    @OneToOne
+    Upload uploads;
+
 
 
 //    public void setUpload(Upload photo) {
