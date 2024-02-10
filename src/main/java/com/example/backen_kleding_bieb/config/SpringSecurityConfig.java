@@ -3,7 +3,6 @@ package com.example.backen_kleding_bieb.config;
 
 import com.example.backen_kleding_bieb.filter.JwtRequestFilter;
 import com.example.backen_kleding_bieb.service.CustomUserDetailsService;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -21,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SpringSecurityConfig {
 
-    /*inject customUserDetailService en jwtRequestFilter--- DONE!!!*/
+
 
     public final CustomUserDetailsService customUserDetailsService;
 
@@ -41,9 +40,6 @@ public class SpringSecurityConfig {
         this.jwtRequestFilter = jwtRequestFilter;
         this.passwordEncoder = passwordEncoder;
     }
-
-    // Authenticatie met customUserDetailsService en passwordEncoder
-
 
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
@@ -113,7 +109,7 @@ public class SpringSecurityConfig {
                 .antMatchers(HttpMethod.POST, "/upload").permitAll()
 
 
-//
+
 
 
                 ///////////// mail  /////////////////////////////////////////////////////////////

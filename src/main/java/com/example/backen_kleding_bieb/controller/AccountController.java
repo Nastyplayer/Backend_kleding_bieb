@@ -2,7 +2,6 @@ package com.example.backen_kleding_bieb.controller;
 
 import com.example.backen_kleding_bieb.dto.AccountDto;
 import com.example.backen_kleding_bieb.service.AccountService;
-//import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -54,11 +53,11 @@ public class AccountController {
             return ResponseEntity.created(uri).body(createdId);
         }
     }
-    ///////////////////////////
+
  private String getErrorString(BindingResult br) {
       return null;
    }
-    //////////////////////
+
     @PutMapping("/accounts/{id}")
     public ResponseEntity<AccountDto> updateAccount(@PathVariable Long id, @Valid @RequestBody AccountDto accountDto) {
         AccountDto accountDto1 = accountService.putAccount(id, accountDto);
