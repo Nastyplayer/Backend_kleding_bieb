@@ -61,24 +61,27 @@ class SubscriptionIntegrationTest {
         subscription200.setExpirationDate(LocalDate.of(2023, 12, 31));
         subscription200 = subscriptionRepository.save(subscription200);
 
-
-
-
-        subscriptionDto1 = new SubscriptionDto();
-        subscriptionDto1.setId(subscription100.getId());
-        subscriptionDto1.setTypeSubscription(subscription100.getTypeSubscription());
-        subscriptionDto1.setExpirationDate(subscription100.getExpirationDate());
-
-        subscriptionDto2 = new SubscriptionDto();
-        subscriptionDto2.setId(subscription200.getId());
-        subscriptionDto2.setTypeSubscription(subscription200.getTypeSubscription());
-        subscriptionDto2.setExpirationDate(subscription200.getExpirationDate());
-
-        subscriptionDto3 = new SubscriptionDto();
-        subscriptionDto3.setId(3L);
-        subscriptionDto3.setTypeSubscription("annual");
-        subscriptionDto3.setExpirationDate(LocalDate.of(2023, 12, 31));
+        subscriptionDto1 = new SubscriptionDto(subscription100.getId(), "annual", LocalDate.of(2023, 11, 30), null, null);
+        subscriptionDto2 = new SubscriptionDto(subscription200.getId(), "annual", LocalDate.of(2023, 12, 31), null, null);
+        subscriptionDto3 = new SubscriptionDto(3L, "annual", LocalDate.of(2023, 12, 31), null, null);
     }
+
+
+//        subscriptionDto1 = new SubscriptionDto();
+//        subscriptionDto1.setId(subscription100.getId());
+//        subscriptionDto1.setTypeSubscription(subscription100.getTypeSubscription());
+//        subscriptionDto1.setExpirationDate(subscription100.getExpirationDate());
+//
+//        subscriptionDto2 = new SubscriptionDto();
+//        subscriptionDto2.setId(subscription200.getId());
+//        subscriptionDto2.setTypeSubscription(subscription200.getTypeSubscription());
+//        subscriptionDto2.setExpirationDate(subscription200.getExpirationDate());
+//
+//        subscriptionDto3 = new SubscriptionDto();
+//        subscriptionDto3.setId(3L);
+//        subscriptionDto3.setTypeSubscription("annual");
+//        subscriptionDto3.setExpirationDate(LocalDate.of(2023, 12, 31));
+//    }
 
 
 
