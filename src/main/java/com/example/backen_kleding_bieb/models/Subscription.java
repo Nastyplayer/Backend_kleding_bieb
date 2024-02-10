@@ -67,7 +67,7 @@ public class Subscription {
     @ElementCollection(targetClass = SubscriptionStatus.class)
 
     @Enumerated(EnumType.STRING)
-    @Fetch(FetchMode.JOIN)
+//    @Fetch(FetchMode.JOIN)
     List<SubscriptionStatus> subscriptionStatus;
 
 
