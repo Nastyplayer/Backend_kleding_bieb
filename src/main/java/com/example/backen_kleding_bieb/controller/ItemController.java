@@ -1,6 +1,5 @@
 package com.example.backen_kleding_bieb.controller;
 
-
 import com.example.backen_kleding_bieb.dto.ItemDto;
 import com.example.backen_kleding_bieb.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +28,12 @@ public class ItemController {
 
     private final UploadService UploadService;
     private ItemService itemService;
-//    private UploadController uploadController;
+
 
     @Autowired
     public ItemController(ItemService itemService, AccountService accountService, AccountController accountController,
                           OrderController orderController,
                           OrderService orderService,
-//                          UploadController uploadController
                           UploadService uploadService,
                           UserController userController, UserService userService, ItemService itemService1) {
         this.accountService = accountService;
@@ -76,11 +74,11 @@ public class ItemController {
             return ResponseEntity.created(uri).body(createdId);
         }
     }
-    ///////////////////////////
+
     private String getErrorString(BindingResult br) {
         return null;
     }
-    //////////////////////
+
     @PutMapping("/items/{id}")
     public ResponseEntity<ItemDto> updateItem(@PathVariable Long id, @Valid @RequestBody ItemDto itemDto) {
         ItemDto itemDto1 = itemService.putItem(id, itemDto);

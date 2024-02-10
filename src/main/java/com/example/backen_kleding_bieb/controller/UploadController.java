@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-//
+
 @CrossOrigin
 @RestController
 
@@ -24,23 +24,6 @@ public class UploadController {
         this.itemService = itemService;
         this.service = service;
     }
-//
-//// deze mag weg   er wordt niet gebruikt
-//    @PostMapping("/upload")
-//    Upload singleFileUpload(@RequestParam("file") MultipartFile file){
-//
-//        // next line makes url. example "http://localhost:8080/download/naam.jpg"
-//        String url = ServletUriComponentsBuilder.fromCurrentContextPath().path("/download/").
-//                path(Objects.requireNonNull(file.getOriginalFilename())).toUriString();
-//
-//        String contentType = file.getContentType();
-//
-//
-//        String fileName = service.storeFile(file, url);
-//
-//        return new Upload(fileName, contentType, url );
-//    }
-//
 
     @GetMapping("/files")
     public ResponseEntity<List<String>> getFiles() {
