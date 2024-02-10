@@ -40,16 +40,15 @@ public class Account  {
         this.email = email;
         this.comment = comment;
         this.subscription = subscription;
-        this.upload = upload;
+//        this.upload = upload;
     }
     @OneToOne  ( mappedBy = "account")
     private Subscription subscription;
 
 
-
-    @OneToOne
-    @JsonIgnore
-    private Upload upload;
+//    @OneToOne
+//    @JsonIgnore
+//    private Upload upload;
 
 //    uploads
 
