@@ -52,9 +52,6 @@ public class Item {
     Upload uploads;
 
 
-
-
-
     public enum Tags {
 
         SUSTAINABLE,
@@ -74,8 +71,6 @@ public class Item {
         LINNEN_
 
     }
-
-
 
     @ElementCollection(targetClass = Tags.class)
     @Enumerated(EnumType.STRING)

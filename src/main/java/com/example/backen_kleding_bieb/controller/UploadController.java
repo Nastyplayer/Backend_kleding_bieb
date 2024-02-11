@@ -2,7 +2,6 @@ package com.example.backen_kleding_bieb.controller;
 
 import com.example.backen_kleding_bieb.dto.ItemDto;
 import com.example.backen_kleding_bieb.dto.UploadWithItemDto;
-
 import com.example.backen_kleding_bieb.service.ItemService;
 import com.example.backen_kleding_bieb.service.UploadService;
 import org.springframework.http.ResponseEntity;
@@ -24,14 +23,6 @@ public class UploadController {
         this.itemService = itemService;
         this.service = service;
     }
-
-//    @GetMapping("/files")
-//    public ResponseEntity<List<String>> getFiles() {
-//        List<String> files = service.getFilesFromUploadDirectory();
-//        return ResponseEntity.ok().body(files);
-//    }
-
-
 
     @GetMapping("/downloadAllFiles")
     public ResponseEntity<List<UploadWithItemDto>> downloadAllFiles() {
