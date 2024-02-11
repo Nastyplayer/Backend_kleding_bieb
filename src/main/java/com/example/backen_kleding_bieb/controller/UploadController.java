@@ -25,11 +25,11 @@ public class UploadController {
         this.service = service;
     }
 
-    @GetMapping("/files")
-    public ResponseEntity<List<String>> getFiles() {
-        List<String> files = service.getFilesFromUploadDirectory();
-        return ResponseEntity.ok().body(files);
-    }
+//    @GetMapping("/files")
+//    public ResponseEntity<List<String>> getFiles() {
+//        List<String> files = service.getFilesFromUploadDirectory();
+//        return ResponseEntity.ok().body(files);
+//    }
 
 
 

@@ -22,8 +22,8 @@ import java.util.Objects;
 public class ItemController {
 
 
-    private final AccountService accountService;
-    private final OrderService orderService;
+//    private final AccountService accountService;
+//    private final OrderService orderService;
     private final UserService userService;
 
     private final UploadService UploadService;
@@ -31,13 +31,14 @@ public class ItemController {
 
 
     @Autowired
-    public ItemController(ItemService itemService, AccountService accountService, AccountController accountController,
-                          OrderController orderController,
-                          OrderService orderService,
+    public ItemController(ItemService itemService,
+//                          AccountService accountService, AccountController accountController,
+//                          OrderController orderController,
+//                          OrderService orderService,
                           UploadService uploadService,
                           UserController userController, UserService userService, ItemService itemService1) {
-        this.accountService = accountService;
-        this.orderService = orderService;
+//        this.accountService = accountService;
+//        this.orderService = orderService;
        this.UploadService = uploadService;
         this.userService = userService;
         this.itemService = itemService;
