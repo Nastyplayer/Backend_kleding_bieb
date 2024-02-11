@@ -6,7 +6,6 @@ import com.example.backen_kleding_bieb.models.Order;
 import com.example.backen_kleding_bieb.models.Upload;
 import com.example.backen_kleding_bieb.repository.ItemRepository;
 import com.example.backen_kleding_bieb.repository.UploadRepository;
-//import jakarta.persistence.criteria.Order;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -94,8 +93,7 @@ public class ItemService {
 
         if (UploadisPresent()) {
             Upload photo = Upload.get();
-//            item.setUpload(photo);
-//            itemRepository.save(item);
+
         }
     }
     private boolean UploadisPresent() {
@@ -118,9 +116,6 @@ public class ItemService {
         if (item.getTags() != null) {
             itemDto.setTags(item.getTags());
         }
-//        if (item.getUpload() != null) {
-//            itemDto.setUpload(item.getUpload());
-//        }
 
         return itemDto;
     }
@@ -132,8 +127,6 @@ public class ItemService {
         item.setNameInfo(itemDto.getNameInfo());
         item.setTags(itemDto.getTags());
         item.setOrder((com.example.backen_kleding_bieb.models.Order) itemDto.getOrders());
-//        item.setUpload(itemDto.getUpload());
-
         return item;
     }
 
