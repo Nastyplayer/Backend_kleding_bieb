@@ -2,8 +2,8 @@ package com.example.backen_kleding_bieb.service;
 
 import com.example.backen_kleding_bieb.dto.UserDto;
 import com.example.backen_kleding_bieb.models.Authority;
-import com.example.backen_kleding_bieb.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+//import com.example.backen_kleding_bieb.repository.UserRepository;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,12 +21,13 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
 
-    @Autowired
-    private UserRepository userRepository;
+//    @Autowired
+//    private UserRepository userRepository;
     private final UserService userService;
 
-    public CustomUserDetailsService(UserService userService,  UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public CustomUserDetailsService(UserService userService){
+//            ,  UserRepository userRepository) {
+//        this.userRepository = userRepository;
         this.userService = userService;
     }
 

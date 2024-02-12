@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SpringSecurityConfig {
 
-    /*inject customUserDetailService en jwtRequestFilter--- DONE!!!*/
+
 
     public final CustomUserDetailsService customUserDetailsService;
 
@@ -32,16 +32,10 @@ public class SpringSecurityConfig {
                                 PasswordEncoder passwordEncoder){
 
 
-
-
-
-
         this.customUserDetailsService = customUserDetailsService;
         this.jwtRequestFilter = jwtRequestFilter;
         this.passwordEncoder = passwordEncoder;
     }
-
-    // Authenticatie met customUserDetailsService en passwordEncoder
 
 
     @Bean
@@ -53,17 +47,12 @@ public class SpringSecurityConfig {
                 .and()
                 .build();
     }
-//     @Bean
-//     public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//     }
 
-    // Authorizatie met jwt
 
     @Bean
     protected SecurityFilterChain filter (HttpSecurity http) throws Exception {
 
-        //JWT token authentication
+
         http
                 .csrf().disable()
                 .httpBasic().disable()
@@ -118,11 +107,11 @@ public class SpringSecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/upload").permitAll()
 
 
-                .requestMatchers(HttpMethod.POST, "/sendmail").hasRole("ADMIN")
+
 
 
                 ///////////// mail  /////////////////////////////////////////////////////////////
-                .requestMatchers("/sendMail").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/sendmail").hasRole("ADMIN")
                 .requestMatchers("/sendMailWithAttachment").hasRole("ADMIN")
 
                 /////////// up and download   /////////////////////////////////////////////////
@@ -134,7 +123,7 @@ public class SpringSecurityConfig {
                 .requestMatchers("/authenticate").permitAll()
 
 
-                .anyRequest().denyAll()
+
 
                 .and()
                 .sessionManagement()

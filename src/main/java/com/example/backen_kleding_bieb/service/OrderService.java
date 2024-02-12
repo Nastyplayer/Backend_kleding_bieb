@@ -4,11 +4,11 @@ package com.example.backen_kleding_bieb.service;
 import com.example.backen_kleding_bieb.dto.OrderDto;
 import com.example.backen_kleding_bieb.exceptions.RecordNotFoundException;
 import com.example.backen_kleding_bieb.models.Order;
-import com.example.backen_kleding_bieb.repository.AccountRepository;
-import com.example.backen_kleding_bieb.repository.ItemRepository;
-import com.example.backen_kleding_bieb.repository.OrderRepository;
-import com.example.backen_kleding_bieb.repository.UserRepository;
 
+import com.example.backen_kleding_bieb.repository.OrderRepository;
+//import com.example.backen_kleding_bieb.repository.UserRepository;
+//import com.example.backen_kleding_bieb.repository.AccountRepository;
+//import com.example.backen_kleding_bieb.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,19 +20,21 @@ public class OrderService {
 
 
     private final OrderRepository orderRepository;
-    private final ItemRepository itemRepository;
-    private final UserRepository UserRepository;
-    private final AccountRepository AccountRepository;
-    private final AccountService AccountService;
+//    private final ItemRepository itemRepository;
+//    private final UserRepository UserRepository;
+//    private final AccountRepository AccountRepository;
+//    private final AccountService AccountService;
 
 
-    public OrderService(OrderRepository orderRepository, ItemRepository itemRepository,
-                        UserRepository userRepository, AccountRepository accountRepository, AccountService accountService) {
+    public OrderService(OrderRepository orderRepository){
+
+//            , ItemRepository itemRepository,
+//                        UserRepository userRepository, AccountRepository accountRepository, AccountService accountService) {
         this.orderRepository = orderRepository;
-        this.itemRepository = itemRepository;
-        this.UserRepository = userRepository;
-        this.AccountRepository = accountRepository;
-        this.AccountService = accountService;
+//        this.itemRepository = itemRepository;
+//        this.UserRepository = userRepository;
+//        this.AccountRepository = accountRepository;
+//        this.AccountService = accountService;
 
     }
 

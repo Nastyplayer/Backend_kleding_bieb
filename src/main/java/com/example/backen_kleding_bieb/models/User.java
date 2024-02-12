@@ -2,7 +2,7 @@ package com.example.backen_kleding_bieb.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+//import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,7 +12,7 @@ import java.util.Set;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 
 @Getter
 @Setter
@@ -33,13 +33,13 @@ public class User {
 
     @Column
     private String email;
-    public User(String username, String password, String email) {
-
-        this.username = username;
-        this.password = password;
-        this.email = email;
-
-    }
+//    public User(String username, String password, String email) {
+//
+//        this.username = username;
+//        this.password = password;
+//        this.email = email;
+//
+//    }
 
 
     @OneToMany(mappedBy = "users")

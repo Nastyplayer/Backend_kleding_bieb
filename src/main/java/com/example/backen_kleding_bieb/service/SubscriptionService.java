@@ -2,9 +2,9 @@ package com.example.backen_kleding_bieb.service;
 
 import com.example.backen_kleding_bieb.dto.SubscriptionDto;
 import com.example.backen_kleding_bieb.exceptions.RecordNotFoundException;
-import com.example.backen_kleding_bieb.models.Account;
+//import com.example.backen_kleding_bieb.models.Account;
 import com.example.backen_kleding_bieb.models.Subscription;
-import com.example.backen_kleding_bieb.repository.AccountRepository;
+//import com.example.backen_kleding_bieb.repository.AccountRepository;
 import com.example.backen_kleding_bieb.repository.SubscriptionRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,14 +19,15 @@ public class SubscriptionService {
 
     private final SubscriptionRepository subscriptionRepository;
 
-    private final AccountRepository AccountRepository;
-    private Account Account;
+//    private final AccountRepository AccountRepository;
+//    private Account Account;
 
 
 
-    public SubscriptionService(SubscriptionRepository subscriptionRepository, AccountRepository accountRepository) {
+    public SubscriptionService(SubscriptionRepository subscriptionRepository){
+//            , AccountRepository accountRepository) {
         this.subscriptionRepository = subscriptionRepository;
-        this.AccountRepository = accountRepository;
+//        this.AccountRepository = accountRepository;
     }
 
     public List<SubscriptionDto> getAllSubscriptions() {

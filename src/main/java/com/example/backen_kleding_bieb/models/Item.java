@@ -2,7 +2,7 @@
 package com.example.backen_kleding_bieb.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+//import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 
 @Getter
 @Setter
@@ -55,13 +55,13 @@ public class Item {
     Upload uploads;
 
 
-
-    public void setUpload(Upload photo) {
-    }
-
-    public Upload getUpload() {
-        return uploads;
-    }
+//
+//    public void setUpload(Upload photo) {
+//    }
+//
+//    public Upload getUpload() {
+//        return uploads;
+//    }
 
 
 

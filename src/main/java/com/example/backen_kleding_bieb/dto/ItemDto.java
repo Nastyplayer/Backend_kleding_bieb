@@ -1,7 +1,7 @@
 package com.example.backen_kleding_bieb.dto;
 
 import com.example.backen_kleding_bieb.models.Item;
-import com.example.backen_kleding_bieb.models.Upload;
+//import com.example.backen_kleding_bieb.models.Upload;
 import com.example.backen_kleding_bieb.models.User;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.Id;
@@ -32,8 +32,8 @@ public class ItemDto {
 
     List<Item.Tags> tags;
 
-    @JsonIncludeProperties({"url", "fileName", "textType"})
-    private Upload upload;
+//    @JsonIncludeProperties({"url", "fileName", "textType"})
+//    private Upload upload;
 
     @JsonIncludeProperties({"username", "password", "email"})
 

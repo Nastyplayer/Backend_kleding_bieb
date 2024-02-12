@@ -5,6 +5,8 @@ import com.example.backen_kleding_bieb.models.Email;
 import com.example.backen_kleding_bieb.repository.EmailRepository;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailMessage;
 import org.springframework.mail.MailParseException;
@@ -18,7 +20,8 @@ import java.util.Date;
 
 
 @Service
-
+@AllArgsConstructor
+@NoArgsConstructor
 public class EmailService implements EmailRepository {
     private JavaMailSender javaMailSender;
     private String sender;

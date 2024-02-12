@@ -4,7 +4,7 @@ package com.example.backen_kleding_bieb.models;
 import com.example.backen_kleding_bieb.dto.UserDto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+//import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 
 @Getter
 @Setter
@@ -30,7 +30,7 @@ public class Order {
     private String itemInfo;
 
     private LocalDate dateInfo;
-//
+
     public void setUserDto(UserDto userDto) {
     }
     public UserDto getUserDto() {

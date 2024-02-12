@@ -16,7 +16,7 @@ public class ItemService {
 
     private final ItemRepository itemRepository;
     private UploadRepository uploadRepository;
-    private Item item;
+//    private Item item;
 
     public ItemService(ItemRepository itemRepository, UploadRepository uploadRepository) {
 
@@ -93,8 +93,8 @@ public class ItemService {
 
         if (UploadisPresent()) {
             Upload photo = Upload.get();
-            item.setUpload(photo);
-            itemRepository.save(item);
+//            item.setUpload(photo);
+//            itemRepository.save(item);
         }
     }
     private boolean UploadisPresent() {
@@ -117,9 +117,9 @@ public class ItemService {
         if (item.getTags() != null) {
             itemDto.setTags(item.getTags());
         }
-        if (item.getUpload() != null) {
-            itemDto.setUpload(item.getUpload());
-        }
+//        if (item.getUpload() != null) {
+//            itemDto.setUpload(item.getUpload());
+//        }
 
         return itemDto;
     }
@@ -131,7 +131,7 @@ public class ItemService {
         item.setNameInfo(itemDto.getNameInfo());
         item.setTags(itemDto.getTags());
         item.setOrder((com.example.backen_kleding_bieb.models.Order) itemDto.getOrders());
-        item.setUpload(itemDto.getUpload());
+//        item.setUpload(itemDto.getUpload());
 
         return item;
     }

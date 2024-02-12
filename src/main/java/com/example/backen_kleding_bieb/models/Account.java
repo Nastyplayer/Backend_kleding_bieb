@@ -9,7 +9,7 @@ import lombok.Setter;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 
 @Getter
 @Setter
@@ -31,23 +31,23 @@ public class Account  {
     private String comment;
 
 
-    public Subscription getSubscription() {
-        return subscription;
-    }
-
-    public void setSubscription(Subscription subscription) {
-        this.subscription = subscription;
-    }
-
-    public Upload getUpload() {
-        return uploads;
-    }
-
-
-    public void setUpload(Upload upload) {
-        this.uploads = uploads;
-    }
-
+//    public Subscription getSubscription() {
+//        return subscription;
+//    }
+//
+//    public void setSubscription(Subscription subscription) {
+//        this.subscription = subscription;
+//    }
+//
+//    public Upload getUpload() {
+//        return uploads;
+//    }
+//
+//
+//    public void setUpload(Upload upload) {
+//        this.uploads = uploads;
+//    }
+//
 
 
 
@@ -55,9 +55,9 @@ public class Account  {
     private Subscription subscription;
 
 
-    @OneToOne
-    @JsonIgnore
-    private Upload uploads;
+//    @OneToOne
+//    @JsonIgnore
+//    private Upload uploads;
 
     @OneToOne( mappedBy = "account")
     @JsonIgnore

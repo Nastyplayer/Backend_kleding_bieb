@@ -2,7 +2,7 @@ package com.example.backen_kleding_bieb.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+//import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 
 @Getter
 @Setter
@@ -31,14 +31,14 @@ public class Subscription {
 
     private LocalDate expirationDate;
 
-
-
-    public Account getAccount() {
-        return account;
-    }
-    public void setAccount(Account account) {
-        this.account = account;
-    }
+//
+//
+//    public Account getAccount() {
+//        return account;
+//    }
+//    public void setAccount(Account account) {
+//        this.account = account;
+//    }
 
     public void setSubscriptionStatus(List<SubscriptionStatus> subscriptionStatus) {
         this.subscriptionStatus = subscriptionStatus;
